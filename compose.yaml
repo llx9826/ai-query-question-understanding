@@ -2,9 +2,9 @@ name: ai-query
 
 services:
   wren-http:
-    image: "wren-http:${WREN_HTTP_IMAGE_TAG:-0.1.0}"
+    image: "wren-http:${WREN_HTTP_IMAGE_TAG:-0.1.1}"
     build:
-      context: "${WREN_HTTP_BUILD_CONTEXT:-https://github.com/llx9826/WrenAI.git#wren-http-v0.1.0}"
+      context: "${WREN_HTTP_BUILD_CONTEXT:-https://github.com/llx9826/WrenAI.git#wren-http-v0.1.1}"
       dockerfile: services/wren-http/Dockerfile
     ports:
       - "127.0.0.1:${WREN_HTTP_PUBLIC_PORT:-30002}:8001"
@@ -31,7 +31,7 @@ services:
     init: true
 
   ai-query:
-    image: "ai-query-question-understanding:${AIQ_IMAGE_TAG:-0.1.0}"
+    image: "ai-query-question-understanding:${AIQ_IMAGE_TAG:-0.1.1}"
     build:
       context: .
       dockerfile: Dockerfile

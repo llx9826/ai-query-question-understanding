@@ -1,14 +1,17 @@
 # 前端仅在构建阶段需要 Node；运行镜像由同一个后端提供页面和 API。
 FROM node:22-alpine AS web
+ARG NPM_REGISTRY=https://mirrors.cloud.tencent.com/npm/
 WORKDIR /build
 COPY frontend/package.json frontend/package-lock.json ./
-RUN npm ci --no-audit --no-fund
+RUN npm ci --no-audit --no-fund --registry="${NPM_REGISTRY}"
 COPY frontend/ ./
 RUN npm run build
 
 FROM python:3.11-slim AS runtime
+ARG PIP_INDEX_URL=https://mirrors.cloud.tencent.com/pypi/simple
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
+    PIP_INDEX_URL=${PIP_INDEX_URL} \
     AIQ_CONTROL_DATABASE=/srv/app/runtime/control.duckdb \
     AIQ_SESSION_WORKSPACE=/srv/app/runtime/session-workspaces
 WORKDIR /srv/app

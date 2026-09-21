@@ -6,8 +6,8 @@
 
 | 服务 | 仓库 | 版本 |
 | --- | --- | --- |
-| 问数平台 | `llx9826/ai-query-question-understanding` | `0.1.0` |
-| Wren HTTP | `llx9826/WrenAI` | `wren-http-v0.1.0` |
+| 问数平台 | `llx9826/ai-query-question-understanding` | `0.1.1` |
+| Wren HTTP | `llx9826/WrenAI` | `wren-http-v0.1.1` |
 
 这种方式保留两个服务和两个仓库的边界，同时让同一份 Compose 可重复构建整套系统。
 
@@ -88,7 +88,7 @@ WREN_HTTP_BUILD_CONTEXT=../WrenAI
 如果服务器只克隆问数平台，再改为远程固定 tag：
 
 ```text
-WREN_HTTP_BUILD_CONTEXT=https://github.com/llx9826/WrenAI.git#wren-http-v0.1.0
+WREN_HTTP_BUILD_CONTEXT=https://github.com/llx9826/WrenAI.git#wren-http-v0.1.1
 ```
 
 ## 3. 启动
