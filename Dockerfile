@@ -19,8 +19,9 @@ COPY pyproject.toml ./
 COPY app/ ./app/
 RUN pip install --no-cache-dir . \
     && useradd --uid 10001 --create-home appuser \
-    && mkdir -p /srv/app/runtime \
-    && chown -R appuser:appuser /srv/app/runtime
+    && mkdir -p /srv/app/runtime /srv/app/control /srv/app/sessions /srv/app/datasets \
+    && chown -R appuser:appuser \
+        /srv/app/runtime /srv/app/control /srv/app/sessions /srv/app/datasets
 COPY --from=web /build/dist ./frontend/dist/
 USER appuser
 EXPOSE 8000

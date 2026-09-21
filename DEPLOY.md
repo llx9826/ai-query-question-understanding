@@ -6,7 +6,7 @@
 
 | 服务 | 仓库 | 版本 |
 | --- | --- | --- |
-| 问数平台 | `llx9826/ai-query-question-understanding` | `0.1.1` |
+| 问数平台 | `llx9826/ai-query-question-understanding` | `0.1.2` |
 | Wren HTTP | `llx9826/WrenAI` | `wren-http-v0.1.1` |
 
 这种方式保留两个服务和两个仓库的边界，同时让同一份 Compose 可重复构建整套系统。

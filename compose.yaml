@@ -31,7 +31,7 @@ services:
     init: true
 
   ai-query:
-    image: "ai-query-question-understanding:${AIQ_IMAGE_TAG:-0.1.1}"
+    image: "ai-query-question-understanding:${AIQ_IMAGE_TAG:-0.1.2}"
     build:
       context: .
       dockerfile: Dockerfile
