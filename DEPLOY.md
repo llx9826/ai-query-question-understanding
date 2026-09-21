@@ -1,7 +1,8 @@
 # Docker 部署
 
-问数平台和 Wren HTTP 分别版本管理、一起部署。平台仓库保存 Compose，Wren HTTP
-从独立 WrenAI 仓库的固定 tag 构建。默认版本对应关系：
+问数平台和 Wren HTTP 分别版本管理、一起部署。平台仓库保存 Compose。两个仓库
+位于相邻目录时，Wren HTTP 默认直接从 `../WrenAI` 构建，不会重新下载源码。
+版本对应关系：
 
 | 服务 | 仓库 | 版本 |
 | --- | --- | --- |
@@ -70,13 +71,25 @@ cp .env.example .env
 管理端默认监听 `30001`，Wren 运维接口默认只监听宿主机 `127.0.0.1:30002`；
 两者都避开 `38080`。
 
-如需从本机相邻的 WrenAI 工作区构建，可临时设置：
+相邻目录应为：
+
+```text
+query-question/
+├── ai-query-question-understanding/
+└── WrenAI/
+```
+
+对应配置为：
 
 ```text
 WREN_HTTP_BUILD_CONTEXT=../WrenAI
 ```
 
-正式部署应保留默认的固定 Git tag，避免 `main` 更新后产生不可重复镜像。
+如果服务器只克隆问数平台，再改为远程固定 tag：
+
+```text
+WREN_HTTP_BUILD_CONTEXT=https://github.com/llx9826/WrenAI.git#wren-http-v0.1.0
+```
 
 ## 3. 启动
 
