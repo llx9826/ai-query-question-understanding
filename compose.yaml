@@ -7,7 +7,7 @@ services:
       context: "${WREN_HTTP_BUILD_CONTEXT:-https://github.com/llx9826/WrenAI.git#wren-http-v0.1.1}"
       dockerfile: services/wren-http/Dockerfile
     ports:
-      - "127.0.0.1:${WREN_HTTP_PUBLIC_PORT:-30002}:8001"
+      - "0.0.0.0:${WREN_HTTP_PUBLIC_PORT:-30002}:8001"
     environment:
       WREN_HTTP_WORKSPACES_FILE: /srv/config/workspaces.json
       WREN_HTTP_DUCKDB_ROOT: /srv/data/published
@@ -36,7 +36,7 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "${AIQ_PUBLIC_PORT:-30001}:8000"
+      - "0.0.0.0:${AIQ_PUBLIC_PORT:-30001}:8000"
     environment:
       AIQ_DEMO_MODE: "false"
       AIQ_HTTP_HOST: 0.0.0.0
