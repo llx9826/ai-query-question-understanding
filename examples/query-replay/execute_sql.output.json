@@ -1,0 +1,29 @@
+{
+  "trace_id": "2fbc1c3ea34040658045ff7a71331d3f",
+  "output": {
+    "preview": {
+      "dialect": "duckdb",
+      "sql": "SELECT * FROM (SELECT COUNT(*) AS \"_col_0\" FROM (SELECT \"b\".\"birth_date\", \"b\".\"brand\", \"b\".\"company_name\", \"b\".\"country\", \"b\".\"email\", \"b\".\"full_name\", \"b\".\"gender\", \"b\".\"inbound_flight_no\", \"b\".\"inbound_flight_time\", \"b\".\"invitation_requirement\", \"b\".\"invitation_status_raw\", \"b\".\"job_title\", \"b\".\"market_contact\", \"b\".\"media_account\", \"b\".\"optional_brand\", \"b\".\"outbound_flight_no\", \"b\".\"outbound_flight_time\", \"b\".\"passport_no\", \"b\".\"person_type\", \"b\".\"regional_contact\", \"b\".\"registration_id\", \"b\".\"reporting_unit\", \"b\".\"vip_mark\", \"b\".\"visa_status\", \"b\".\"visa_status_raw\" FROM main.\"registrations\" AS b WHERE b.snapshot_id = :_snapshot) AS registrations WHERE \"registrations\".\"brand\" = 'CHERY') AS _result LIMIT :_row_cap",
+      "parameters": {
+        "_snapshot": "1fb0ada039714a53bdb79ad6f22462e8",
+        "_row_cap": 501
+      },
+      "snapshot": {
+        "snapshot_id": "1fb0ada039714a53bdb79ad6f22462e8",
+        "source_id": "chery-summit-excel-2026",
+        "fetched_at": "2026-09-15T02:44:02.063499Z",
+        "published_at": "2026-09-15T05:29:03.931194Z"
+      },
+      "catalog_version": "chery-excel-2026-v3"
+    },
+    "names": [
+      "_col_0"
+    ],
+    "rows": [
+      {
+        "_col_0": 775
+      }
+    ],
+    "truncated": false
+  }
+}

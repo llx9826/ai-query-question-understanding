@@ -1,0 +1,3 @@
+{
+  "sql": "SELECT COUNT(*) FROM registrations WHERE brand = 'CHERY'"
+}

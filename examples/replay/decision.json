@@ -1,0 +1,11 @@
+{
+  "contract_version": "understanding-v2",
+  "kind": "ready",
+  "relation": "new",
+  "standalone_question": "统计国家原值为英国或UK的报名记录数。",
+  "message": "问题已明确。",
+  "entity_mentions": [],
+  "entity_evidence_ids": [],
+  "assumptions": [],
+  "based_on_turn_ids": []
+}

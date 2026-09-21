@@ -1,0 +1,195 @@
+{
+  "baseline": "ai-query-scaffold-v0.1.0.zip Library version13",
+  "files": [
+    {
+      "path": "app/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "unchanged_dependency"
+    },
+    {
+      "path": "app/contracts/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "unchanged_dependency"
+    },
+    {
+      "path": "app/contracts/base.py",
+      "sha256": "0dcb7d58abb60552152df1944235020dec83b1baabd1866cf457caa73daede42",
+      "status": "unchanged_dependency"
+    },
+    {
+      "path": "app/contracts/tracing.py",
+      "sha256": "ab67bb90abe4ee3cdac20d40f06a0ed6fbcef152841cac3d318284b5af391e7d",
+      "status": "unchanged_dependency"
+    },
+    {
+      "path": "app/infrastructure/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "unchanged_dependency"
+    },
+    {
+      "path": "app/infrastructure/query_audit/__init__.py",
+      "sha256": "69757221c77170895ba32e8e7d5c75892516f5144d359dd0c6497fa4010efec5",
+      "status": "unchanged_dependency"
+    },
+    {
+      "path": "app/infrastructure/query_audit/store.py",
+      "sha256": "9c53202f6f53bf14d5480d2a302b0eb6db62b431b980c5e243fb41e014360bd4",
+      "status": "unchanged_dependency"
+    },
+    {
+      "path": "app/modules/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "unchanged_dependency"
+    },
+    {
+      "path": "app/modules/data_preparation/README.md",
+      "sha256": "f1eebd793e100195f93de61b4428a1bbc22df7256e981c2063aa61693d857c31",
+      "status": "unchanged_dependency"
+    },
+    {
+      "path": "app/modules/data_preparation/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "unchanged_dependency"
+    },
+    {
+      "path": "app/modules/data_preparation/public.py",
+      "sha256": "8310171997acc6ec70190657c0998190963076aa76fde4533651236b792ac214",
+      "status": "unchanged_dependency"
+    },
+    {
+      "path": "app/modules/data_preparation/schemas.py",
+      "sha256": "c2e6d6a8df0236b18e305010511097979b06c369e6155d51e13dd46555e13024",
+      "status": "unchanged_dependency"
+    },
+    {
+      "path": "app/modules/data_preparation/service.py",
+      "sha256": "bcb8cc05611be1f82fc2d7950207fef8af6d85dd4880a1c3a6949ad3d227bc5d",
+      "status": "unchanged_dependency"
+    },
+    {
+      "path": "app/modules/semantic_catalog/README.md",
+      "sha256": "4f714937d6f7d9a98fadfb80805937bd75168e3e0617e9e9ea8c6e6f27be79c5",
+      "status": "unchanged_dependency"
+    },
+    {
+      "path": "app/modules/semantic_catalog/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "unchanged_dependency"
+    },
+    {
+      "path": "app/modules/semantic_catalog/__main__.py",
+      "sha256": "b12fcc60ec5ec71d613d92f43bc5f7e66a29e9e1c6835708bc71ce0b8a0717db",
+      "status": "unchanged_dependency"
+    },
+    {
+      "path": "app/modules/semantic_catalog/node_contracts.py",
+      "sha256": "4086d5b581e01e3c47c9926726ba774d5224abd3ca54a7417fd4302847ad0bf7",
+      "status": "unchanged_dependency"
+    },
+    {
+      "path": "app/modules/semantic_catalog/nodes/__init__.py",
+      "sha256": "579bb4906cf0855e17abb45bc5899bac250a12a97880af57b5a3241a9d311eb2",
+      "status": "unchanged_dependency"
+    },
+    {
+      "path": "app/modules/semantic_catalog/nodes/__main__.py",
+      "sha256": "dc096cd89468391e0b53e8fd7bdc2ab0784f8dede4ee0bb55f93d6a65771876b",
+      "status": "unchanged_dependency"
+    },
+    {
+      "path": "app/modules/semantic_catalog/nodes/build_sql_context.py",
+      "sha256": "585038e832769998b1b42e40b3e6572072ab4ebbba0ce0fa64d11b882c24a91e",
+      "status": "unchanged_dependency"
+    },
+    {
+      "path": "app/modules/semantic_catalog/nodes/find_events.py",
+      "sha256": "6c1c0bf265eeb77cabef94d6ce158abdd649d43b44e41f1071feb72fd24e811f",
+      "status": "unchanged_dependency"
+    },
+    {
+      "path": "app/modules/semantic_catalog/nodes/find_fields.py",
+      "sha256": "ffec0228a4bdae698e3f8447abd263481aad5b12856fd5d3ace8cf13fd90585e",
+      "status": "unchanged_dependency"
+    },
+    {
+      "path": "app/modules/semantic_catalog/nodes/load_catalog.py",
+      "sha256": "2040c34d39dbaab862064ccd192a041a7fc56f0e068127349d49aa66ac7e1d07",
+      "status": "unchanged_dependency"
+    },
+    {
+      "path": "app/modules/semantic_catalog/nodes/resolve_value.py",
+      "sha256": "77f4f84b98792ca4ba869fafc01f3ffc38a5266d63af8b32397d7fef8bf1bf4e",
+      "status": "unchanged_dependency"
+    },
+    {
+      "path": "app/modules/semantic_catalog/nodes/scope_catalog.py",
+      "sha256": "d14127ef02fe66218a85c2237cc832a9e2e751c4a5da6a9ccd1736b318074bb1",
+      "status": "unchanged_dependency"
+    },
+    {
+      "path": "app/modules/semantic_catalog/nodes/validate_preparation.py",
+      "sha256": "149e695d259a5f78d28506fa9517b61b57073cf2fc67f262682dd0189f0939dc",
+      "status": "unchanged_dependency"
+    },
+    {
+      "path": "app/modules/semantic_catalog/public.py",
+      "sha256": "5fdf095ac6329d90e65cc7167c3477f14d869d7f833d97cfaa2b7ee3a7b342b8",
+      "status": "unchanged_dependency"
+    },
+    {
+      "path": "app/modules/semantic_catalog/schemas.py",
+      "sha256": "b68c86494df214329c0b89334f49b4517c897555a18e860a5b7ea6fd1aedb349",
+      "status": "unchanged_dependency"
+    },
+    {
+      "path": "app/modules/semantic_catalog/service.py",
+      "sha256": "a781f760ac874fc632480433f90e02e89266da06a28e8809822ec61cba42abd5",
+      "status": "unchanged_dependency"
+    },
+    {
+      "path": "app/modules/source_ingestion/README.md",
+      "sha256": "404e14a14fd258f85368362e4ec4aa95503823150e49120714520c4c86d36826",
+      "status": "unchanged_dependency"
+    },
+    {
+      "path": "app/modules/source_ingestion/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "unchanged_dependency"
+    },
+    {
+      "path": "app/modules/source_ingestion/public.py",
+      "sha256": "e5ad90aa7eef1273b8f3453b9c8bf5200e1aea2d0a10481b42a31e3d4b111455",
+      "status": "unchanged_dependency"
+    },
+    {
+      "path": "app/modules/source_ingestion/schemas.py",
+      "sha256": "775b90088e65046fb2bcbc01bee56f2fd778da38ee89c691167e2b4d99898a0e",
+      "status": "unchanged_dependency"
+    },
+    {
+      "path": "app/modules/source_ingestion/service.py",
+      "sha256": "ddd7f1206b1d8d3f5528c5440aff04cdf5ffaa5593034872c1f84e471870ba5d",
+      "status": "unchanged_dependency"
+    },
+    {
+      "path": "app/infrastructure/auth.py",
+      "sha256": "d464c027434e92cab051338079859323c39a4bf42af12dd56d73f33c736947d2",
+      "status": "unchanged_dependency"
+    },
+    {
+      "path": "app/modules/query_execution/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "unchanged_dependency"
+    },
+    {
+      "path": "app/modules/query_execution/public.py",
+      "sha256": "026aa7cf9645ee7d9edf58357694e31f987515b54d91f2238775788ee652e548",
+      "status": "unchanged_dependency"
+    },
+    {
+      "path": "app/modules/query_execution/schemas.py",
+      "sha256": "006cfefeb5bf84409104bfb412b3b6c10fd039321f9479f167161563e80be19c",
+      "status": "unchanged_dependency"
+    }
+  ]
+}

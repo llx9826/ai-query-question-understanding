@@ -1,0 +1,142 @@
+[
+  {
+    "id": "O01",
+    "review": "人工逐题核对结果和文字，不调用额外评审API",
+    "answer_behavior_pass": true,
+    "note": "通过",
+    "narrative_semantically_correct": true
+  },
+  {
+    "id": "O02",
+    "review": "人工逐题核对结果和文字，不调用额外评审API",
+    "answer_behavior_pass": true,
+    "note": "通过",
+    "narrative_semantically_correct": true
+  },
+  {
+    "id": "O03",
+    "review": "人工逐题核对结果和文字，不调用额外评审API",
+    "answer_behavior_pass": true,
+    "note": "通过",
+    "narrative_semantically_correct": true
+  },
+  {
+    "id": "O04",
+    "review": "人工逐题核对结果和文字，不调用额外评审API",
+    "answer_behavior_pass": true,
+    "note": "通过",
+    "narrative_semantically_correct": true
+  },
+  {
+    "id": "O05",
+    "review": "人工逐题核对结果和文字，不调用额外评审API",
+    "answer_behavior_pass": true,
+    "note": "通过",
+    "narrative_semantically_correct": true
+  },
+  {
+    "id": "O06",
+    "review": "人工逐题核对结果和文字，不调用额外评审API",
+    "answer_behavior_pass": true,
+    "note": "通过；明细展示偏简",
+    "narrative_semantically_correct": true
+  },
+  {
+    "id": "O07",
+    "review": "人工逐题核对结果和文字，不调用额外评审API",
+    "answer_behavior_pass": true,
+    "note": "行为通过；阶段审计缺失",
+    "narrative_semantically_correct": null
+  },
+  {
+    "id": "O08",
+    "review": "人工逐题核对结果和文字，不调用额外评审API",
+    "answer_behavior_pass": true,
+    "note": "通过",
+    "narrative_semantically_correct": true
+  },
+  {
+    "id": "O09",
+    "review": "人工逐题核对结果和文字，不调用额外评审API",
+    "answer_behavior_pass": true,
+    "note": "行为通过；状态契约不通过",
+    "narrative_semantically_correct": null
+  },
+  {
+    "id": "O10",
+    "review": "人工逐题核对结果和文字，不调用额外评审API",
+    "answer_behavior_pass": true,
+    "note": "通过",
+    "narrative_semantically_correct": null
+  },
+  {
+    "id": "N01",
+    "review": "人工逐题核对结果和文字，不调用额外评审API",
+    "answer_behavior_pass": true,
+    "note": "通过",
+    "narrative_semantically_correct": true
+  },
+  {
+    "id": "N02",
+    "review": "人工逐题核对结果和文字，不调用额外评审API",
+    "answer_behavior_pass": true,
+    "note": "通过",
+    "narrative_semantically_correct": true
+  },
+  {
+    "id": "N03",
+    "review": "人工逐题核对结果和文字，不调用额外评审API",
+    "answer_behavior_pass": true,
+    "note": "通过",
+    "narrative_semantically_correct": true
+  },
+  {
+    "id": "N04",
+    "review": "人工逐题核对结果和文字，不调用额外评审API",
+    "answer_behavior_pass": true,
+    "note": "通过",
+    "narrative_semantically_correct": true
+  },
+  {
+    "id": "N05",
+    "review": "人工逐题核对结果和文字，不调用额外评审API",
+    "answer_behavior_pass": true,
+    "note": "数据通过；完整解释未完成",
+    "narrative_semantically_correct": null
+  },
+  {
+    "id": "N06",
+    "review": "人工逐题核对结果和文字，不调用额外评审API",
+    "answer_behavior_pass": false,
+    "note": "答案错误",
+    "narrative_semantically_correct": false
+  },
+  {
+    "id": "N07",
+    "review": "人工逐题核对结果和文字，不调用额外评审API",
+    "answer_behavior_pass": true,
+    "note": "数据通过；完整解释未完成",
+    "narrative_semantically_correct": null
+  },
+  {
+    "id": "N08",
+    "review": "人工逐题核对结果和文字，不调用额外评审API",
+    "answer_behavior_pass": false,
+    "note": "误拦截",
+    "narrative_semantically_correct": null
+  },
+  {
+    "id": "N09",
+    "review": "人工逐题核对结果和文字，不调用额外评审API",
+    "answer_behavior_pass": true,
+    "note": "通过",
+    "narrative_semantically_correct": null
+  },
+  {
+    "id": "N10",
+    "review": "人工逐题核对结果和文字，不调用额外评审API",
+    "answer_behavior_pass": true,
+    "note": "通过",
+    "narrative_semantically_correct": true
+  }
+]

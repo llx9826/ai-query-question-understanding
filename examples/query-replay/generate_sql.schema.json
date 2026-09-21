@@ -1,0 +1,634 @@
+{
+  "$defs": {
+    "AccessScope": {
+      "additionalProperties": false,
+      "properties": {
+        "source_id": {
+          "title": "Source Id",
+          "type": "string"
+        },
+        "allowed_brands": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Allowed Brands"
+        },
+        "allow_details": {
+          "default": false,
+          "title": "Allow Details",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "source_id"
+      ],
+      "title": "AccessScope",
+      "type": "object"
+    },
+    "BusinessRequirement": {
+      "additionalProperties": false,
+      "properties": {
+        "description": {
+          "title": "Description",
+          "type": "string"
+        },
+        "required_fields": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Required Fields",
+          "type": "array"
+        },
+        "resolution": {
+          "title": "Resolution",
+          "type": "string"
+        }
+      },
+      "required": [
+        "description",
+        "required_fields",
+        "resolution"
+      ],
+      "title": "BusinessRequirement",
+      "type": "object"
+    },
+    "CatalogEvent": {
+      "additionalProperties": false,
+      "properties": {
+        "event_id": {
+          "title": "Event Id",
+          "type": "string"
+        },
+        "event_date": {
+          "format": "date",
+          "title": "Event Date",
+          "type": "string"
+        },
+        "event_name": {
+          "title": "Event Name",
+          "type": "string"
+        }
+      },
+      "required": [
+        "event_id",
+        "event_date",
+        "event_name"
+      ],
+      "title": "CatalogEvent",
+      "type": "object"
+    },
+    "DataReference": {
+      "additionalProperties": false,
+      "properties": {
+        "snapshot_id": {
+          "title": "Snapshot Id",
+          "type": "string"
+        },
+        "source_id": {
+          "title": "Source Id",
+          "type": "string"
+        },
+        "fetched_at": {
+          "format": "date-time",
+          "title": "Fetched At",
+          "type": "string"
+        },
+        "published_at": {
+          "format": "date-time",
+          "title": "Published At",
+          "type": "string"
+        }
+      },
+      "required": [
+        "snapshot_id",
+        "source_id",
+        "fetched_at",
+        "published_at"
+      ],
+      "title": "DataReference",
+      "type": "object"
+    },
+    "EntityFact": {
+      "additionalProperties": false,
+      "properties": {
+        "contract_version": {
+          "const": "understanding-v1",
+          "default": "understanding-v1",
+          "title": "Contract Version",
+          "type": "string"
+        },
+        "field": {
+          "minLength": 1,
+          "title": "Field",
+          "type": "string"
+        },
+        "value": {
+          "minLength": 1,
+          "title": "Value",
+          "type": "string"
+        },
+        "evidence_id": {
+          "minLength": 1,
+          "title": "Evidence Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "field",
+        "value",
+        "evidence_id"
+      ],
+      "title": "EntityFact",
+      "type": "object"
+    },
+    "ExecutionContext": {
+      "additionalProperties": false,
+      "properties": {
+        "request": {
+          "$ref": "#/$defs/QueryRequest"
+        },
+        "snapshot": {
+          "$ref": "#/$defs/DataReference"
+        },
+        "scope": {
+          "$ref": "#/$defs/AccessScope"
+        },
+        "semantics": {
+          "$ref": "#/$defs/SqlSemanticContext"
+        },
+        "database_schema": {
+          "additionalProperties": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "type": "object"
+          },
+          "title": "Database Schema",
+          "type": "object"
+        },
+        "max_rows": {
+          "maximum": 1000,
+          "minimum": 1,
+          "title": "Max Rows",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "request",
+        "snapshot",
+        "scope",
+        "semantics",
+        "database_schema",
+        "max_rows"
+      ],
+      "title": "ExecutionContext",
+      "type": "object"
+    },
+    "QueryRequest": {
+      "additionalProperties": false,
+      "properties": {
+        "contract_version": {
+          "const": "query-v1",
+          "default": "query-v1",
+          "title": "Contract Version",
+          "type": "string"
+        },
+        "question": {
+          "$ref": "#/$defs/QuestionRequest"
+        }
+      },
+      "required": [
+        "question"
+      ],
+      "title": "QueryRequest",
+      "type": "object"
+    },
+    "QuestionRequest": {
+      "additionalProperties": false,
+      "properties": {
+        "contract_version": {
+          "const": "understanding-v1",
+          "default": "understanding-v1",
+          "title": "Contract Version",
+          "type": "string"
+        },
+        "turn_id": {
+          "minLength": 1,
+          "title": "Turn Id",
+          "type": "string"
+        },
+        "source_id": {
+          "minLength": 1,
+          "title": "Source Id",
+          "type": "string"
+        },
+        "catalog_version": {
+          "minLength": 1,
+          "title": "Catalog Version",
+          "type": "string"
+        },
+        "original_question": {
+          "maxLength": 4000,
+          "minLength": 1,
+          "title": "Original Question",
+          "type": "string"
+        },
+        "standalone_question": {
+          "maxLength": 8000,
+          "minLength": 1,
+          "title": "Standalone Question",
+          "type": "string"
+        },
+        "confirmed_entities": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/EntityFact"
+          },
+          "title": "Confirmed Entities",
+          "type": "array"
+        },
+        "assumptions": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Assumptions",
+          "type": "array"
+        },
+        "based_on_turn_ids": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Based On Turn Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "turn_id",
+        "source_id",
+        "catalog_version",
+        "original_question",
+        "standalone_question"
+      ],
+      "title": "QuestionRequest",
+      "type": "object"
+    },
+    "RelationshipMeaning": {
+      "additionalProperties": false,
+      "properties": {
+        "source_entity": {
+          "title": "Source Entity",
+          "type": "string"
+        },
+        "source_fields": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Source Fields",
+          "type": "array"
+        },
+        "target_entity": {
+          "title": "Target Entity",
+          "type": "string"
+        },
+        "target_fields": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Target Fields",
+          "type": "array"
+        },
+        "cardinality": {
+          "const": "many_to_one",
+          "default": "many_to_one",
+          "title": "Cardinality",
+          "type": "string"
+        },
+        "rule": {
+          "title": "Rule",
+          "type": "string"
+        }
+      },
+      "required": [
+        "source_entity",
+        "source_fields",
+        "target_entity",
+        "target_fields",
+        "rule"
+      ],
+      "title": "RelationshipMeaning",
+      "type": "object"
+    },
+    "SqlColumnMeaning": {
+      "additionalProperties": false,
+      "properties": {
+        "label": {
+          "minLength": 1,
+          "title": "Label",
+          "type": "string"
+        },
+        "description": {
+          "minLength": 1,
+          "title": "Description",
+          "type": "string"
+        },
+        "data_type": {
+          "enum": [
+            "string",
+            "date",
+            "datetime",
+            "boolean"
+          ],
+          "title": "Data Type",
+          "type": "string"
+        },
+        "nullable": {
+          "default": false,
+          "title": "Nullable",
+          "type": "boolean"
+        },
+        "aliases": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Aliases",
+          "type": "array"
+        },
+        "value_meanings": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "title": "Value Meanings",
+          "type": "object"
+        },
+        "requires_details": {
+          "default": false,
+          "title": "Requires Details",
+          "type": "boolean"
+        },
+        "null_meaning": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Null Meaning"
+        },
+        "empty_meaning": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Empty Meaning"
+        },
+        "value_aliases": {
+          "additionalProperties": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "title": "Value Aliases",
+          "type": "object"
+        },
+        "storage_type": {
+          "enum": [
+            "text",
+            "date",
+            "boolean"
+          ],
+          "title": "Storage Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "label",
+        "description",
+        "data_type",
+        "storage_type"
+      ],
+      "title": "SqlColumnMeaning",
+      "type": "object"
+    },
+    "SqlMetricMeaning": {
+      "additionalProperties": false,
+      "properties": {
+        "description": {
+          "title": "Description",
+          "type": "string"
+        },
+        "unit": {
+          "title": "Unit",
+          "type": "string"
+        },
+        "counting_rule": {
+          "title": "Counting Rule",
+          "type": "string"
+        },
+        "required_fields": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Required Fields",
+          "type": "array"
+        }
+      },
+      "required": [
+        "description",
+        "unit",
+        "counting_rule",
+        "required_fields"
+      ],
+      "title": "SqlMetricMeaning",
+      "type": "object"
+    },
+    "SqlSemanticContext": {
+      "additionalProperties": false,
+      "description": "描述数据能表达什么；不携带旧 QuerySpec 的操作枚举。",
+      "properties": {
+        "contract_version": {
+          "const": "sql-semantic-context-v1",
+          "default": "sql-semantic-context-v1",
+          "title": "Contract Version",
+          "type": "string"
+        },
+        "catalog_version": {
+          "title": "Catalog Version",
+          "type": "string"
+        },
+        "semantic_version": {
+          "title": "Semantic Version",
+          "type": "string"
+        },
+        "source_id": {
+          "title": "Source Id",
+          "type": "string"
+        },
+        "tables": {
+          "additionalProperties": {
+            "$ref": "#/$defs/SqlTableMeaning"
+          },
+          "title": "Tables",
+          "type": "object"
+        },
+        "relationships": {
+          "items": {
+            "$ref": "#/$defs/RelationshipMeaning"
+          },
+          "title": "Relationships",
+          "type": "array"
+        },
+        "metrics": {
+          "additionalProperties": {
+            "$ref": "#/$defs/SqlMetricMeaning"
+          },
+          "title": "Metrics",
+          "type": "object"
+        },
+        "rules": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Rules",
+          "type": "array"
+        },
+        "requirements": {
+          "additionalProperties": {
+            "$ref": "#/$defs/BusinessRequirement"
+          },
+          "title": "Requirements",
+          "type": "object"
+        },
+        "events": {
+          "items": {
+            "$ref": "#/$defs/CatalogEvent"
+          },
+          "title": "Events",
+          "type": "array"
+        },
+        "open_questions": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Open Questions",
+          "type": "array"
+        }
+      },
+      "required": [
+        "catalog_version",
+        "semantic_version",
+        "source_id",
+        "tables",
+        "relationships",
+        "metrics",
+        "rules",
+        "requirements",
+        "events",
+        "open_questions"
+      ],
+      "title": "SqlSemanticContext",
+      "type": "object"
+    },
+    "SqlTableMeaning": {
+      "additionalProperties": false,
+      "properties": {
+        "description": {
+          "title": "Description",
+          "type": "string"
+        },
+        "grain": {
+          "title": "Grain",
+          "type": "string"
+        },
+        "scope_column": {
+          "title": "Scope Column",
+          "type": "string"
+        },
+        "primary_key": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Primary Key",
+          "type": "array"
+        },
+        "columns": {
+          "additionalProperties": {
+            "$ref": "#/$defs/SqlColumnMeaning"
+          },
+          "title": "Columns",
+          "type": "object"
+        }
+      },
+      "required": [
+        "description",
+        "grain",
+        "scope_column",
+        "primary_key",
+        "columns"
+      ],
+      "title": "SqlTableMeaning",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "context": {
+      "$ref": "#/$defs/ExecutionContext"
+    },
+    "values": {
+      "additionalProperties": {
+        "items": {
+          "type": "string"
+        },
+        "type": "array"
+      },
+      "title": "Values",
+      "type": "object"
+    },
+    "events": {
+      "items": {
+        "additionalProperties": {
+          "type": "string"
+        },
+        "type": "object"
+      },
+      "title": "Events",
+      "type": "array"
+    },
+    "warnings": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Warnings",
+      "type": "array"
+    }
+  },
+  "required": [
+    "context",
+    "values",
+    "events"
+  ],
+  "title": "GenerationContext",
+  "type": "object"
+}

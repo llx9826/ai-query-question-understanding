@@ -1,0 +1,6 @@
+{
+  "trace_id": "decc4ececf5442758fbe84be8c46792f",
+  "output": {
+    "sql": "SELECT COUNT(*) FROM registrations WHERE brand = 'CHERY'"
+  }
+}

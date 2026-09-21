@@ -1,0 +1,14 @@
+{
+  "contract_version": "query-v1",
+  "question": {
+    "contract_version": "understanding-v1",
+    "turn_id": "96e3e80e8d0c45a1b7c71f71d6bafc63",
+    "source_id": "chery-summit-excel-2026",
+    "catalog_version": "chery-excel-2026-v3",
+    "original_question": "CHERY有多少条报名记录？",
+    "standalone_question": "CHERY有多少条报名记录？",
+    "confirmed_entities": [],
+    "assumptions": [],
+    "based_on_turn_ids": []
+  }
+}

@@ -1,0 +1,484 @@
+{
+  "$defs": {
+    "Candidate": {
+      "additionalProperties": false,
+      "properties": {
+        "contract_version": {
+          "const": "understanding-v1",
+          "default": "understanding-v1",
+          "title": "Contract Version",
+          "type": "string"
+        },
+        "candidate_id": {
+          "minLength": 1,
+          "title": "Candidate Id",
+          "type": "string"
+        },
+        "label": {
+          "minLength": 1,
+          "title": "Label",
+          "type": "string"
+        },
+        "fact": {
+          "$ref": "#/$defs/EntityFact"
+        }
+      },
+      "required": [
+        "candidate_id",
+        "label",
+        "fact"
+      ],
+      "title": "Candidate",
+      "type": "object"
+    },
+    "DataReference": {
+      "additionalProperties": false,
+      "properties": {
+        "snapshot_id": {
+          "title": "Snapshot Id",
+          "type": "string"
+        },
+        "source_id": {
+          "title": "Source Id",
+          "type": "string"
+        },
+        "fetched_at": {
+          "format": "date-time",
+          "title": "Fetched At",
+          "type": "string"
+        },
+        "published_at": {
+          "format": "date-time",
+          "title": "Published At",
+          "type": "string"
+        }
+      },
+      "required": [
+        "snapshot_id",
+        "source_id",
+        "fetched_at",
+        "published_at"
+      ],
+      "title": "DataReference",
+      "type": "object"
+    },
+    "EntityFact": {
+      "additionalProperties": false,
+      "properties": {
+        "contract_version": {
+          "const": "understanding-v1",
+          "default": "understanding-v1",
+          "title": "Contract Version",
+          "type": "string"
+        },
+        "field": {
+          "minLength": 1,
+          "title": "Field",
+          "type": "string"
+        },
+        "value": {
+          "minLength": 1,
+          "title": "Value",
+          "type": "string"
+        },
+        "evidence_id": {
+          "minLength": 1,
+          "title": "Evidence Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "field",
+        "value",
+        "evidence_id"
+      ],
+      "title": "EntityFact",
+      "type": "object"
+    },
+    "PendingChoice": {
+      "additionalProperties": false,
+      "properties": {
+        "contract_version": {
+          "const": "understanding-v1",
+          "default": "understanding-v1",
+          "title": "Contract Version",
+          "type": "string"
+        },
+        "question": {
+          "$ref": "#/$defs/QuestionRequest"
+        },
+        "candidates": {
+          "items": {
+            "$ref": "#/$defs/Candidate"
+          },
+          "maxItems": 50,
+          "minItems": 2,
+          "title": "Candidates",
+          "type": "array"
+        },
+        "prompt": {
+          "minLength": 1,
+          "title": "Prompt",
+          "type": "string"
+        }
+      },
+      "required": [
+        "question",
+        "candidates",
+        "prompt"
+      ],
+      "title": "PendingChoice",
+      "type": "object"
+    },
+    "PresentationRequest": {
+      "additionalProperties": false,
+      "properties": {
+        "contract_version": {
+          "const": "presentation-v1",
+          "default": "presentation-v1",
+          "title": "Contract Version",
+          "type": "string"
+        },
+        "question": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Question",
+          "type": "string"
+        },
+        "query_trace_id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Query Trace Id",
+          "type": "string"
+        },
+        "query": {
+          "$ref": "#/$defs/QueryOutcome"
+        },
+        "mode": {
+          "default": "explain",
+          "enum": [
+            "data",
+            "explain"
+          ],
+          "title": "Mode",
+          "type": "string"
+        },
+        "display_rows": {
+          "default": 20,
+          "maximum": 100,
+          "minimum": 1,
+          "title": "Display Rows",
+          "type": "integer"
+        },
+        "display_cell_characters": {
+          "default": 500,
+          "maximum": 2000,
+          "minimum": 20,
+          "title": "Display Cell Characters",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "question",
+        "query_trace_id",
+        "query"
+      ],
+      "title": "PresentationRequest",
+      "type": "object"
+    },
+    "QueryFailure": {
+      "additionalProperties": false,
+      "properties": {
+        "module": {
+          "const": "query_execution",
+          "default": "query_execution",
+          "title": "Module",
+          "type": "string"
+        },
+        "node": {
+          "title": "Node",
+          "type": "string"
+        },
+        "code": {
+          "title": "Code",
+          "type": "string"
+        },
+        "message": {
+          "title": "Message",
+          "type": "string"
+        },
+        "retryable": {
+          "default": false,
+          "title": "Retryable",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "node",
+        "code",
+        "message"
+      ],
+      "title": "QueryFailure",
+      "type": "object"
+    },
+    "QueryOutcome": {
+      "additionalProperties": false,
+      "properties": {
+        "contract_version": {
+          "const": "query-v1",
+          "default": "query-v1",
+          "title": "Contract Version",
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "ok",
+            "clarification",
+            "error"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "result": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/QueryResult"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "pending_choice": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/PendingChoice"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "failure": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/QueryFailure"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "model_calls": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Model Calls",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "status",
+        "model_calls"
+      ],
+      "title": "QueryOutcome",
+      "type": "object"
+    },
+    "QueryResult": {
+      "additionalProperties": false,
+      "properties": {
+        "columns": {
+          "items": {
+            "$ref": "#/$defs/ResultColumn"
+          },
+          "title": "Columns",
+          "type": "array"
+        },
+        "rows": {
+          "items": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "title": "Rows",
+          "type": "array"
+        },
+        "truncated": {
+          "title": "Truncated",
+          "type": "boolean"
+        },
+        "snapshot": {
+          "$ref": "#/$defs/DataReference"
+        },
+        "catalog_version": {
+          "title": "Catalog Version",
+          "type": "string"
+        },
+        "sql": {
+          "$ref": "#/$defs/SqlPreview"
+        },
+        "warnings": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Warnings",
+          "type": "array"
+        }
+      },
+      "required": [
+        "columns",
+        "rows",
+        "truncated",
+        "snapshot",
+        "catalog_version",
+        "sql",
+        "warnings"
+      ],
+      "title": "QueryResult",
+      "type": "object"
+    },
+    "QuestionRequest": {
+      "additionalProperties": false,
+      "properties": {
+        "contract_version": {
+          "const": "understanding-v1",
+          "default": "understanding-v1",
+          "title": "Contract Version",
+          "type": "string"
+        },
+        "turn_id": {
+          "minLength": 1,
+          "title": "Turn Id",
+          "type": "string"
+        },
+        "source_id": {
+          "minLength": 1,
+          "title": "Source Id",
+          "type": "string"
+        },
+        "catalog_version": {
+          "minLength": 1,
+          "title": "Catalog Version",
+          "type": "string"
+        },
+        "original_question": {
+          "maxLength": 4000,
+          "minLength": 1,
+          "title": "Original Question",
+          "type": "string"
+        },
+        "standalone_question": {
+          "maxLength": 8000,
+          "minLength": 1,
+          "title": "Standalone Question",
+          "type": "string"
+        },
+        "confirmed_entities": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/EntityFact"
+          },
+          "title": "Confirmed Entities",
+          "type": "array"
+        },
+        "assumptions": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Assumptions",
+          "type": "array"
+        },
+        "based_on_turn_ids": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Based On Turn Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "turn_id",
+        "source_id",
+        "catalog_version",
+        "original_question",
+        "standalone_question"
+      ],
+      "title": "QuestionRequest",
+      "type": "object"
+    },
+    "ResultColumn": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "label": {
+          "title": "Label",
+          "type": "string"
+        },
+        "data_type": {
+          "title": "Data Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "label",
+        "data_type"
+      ],
+      "title": "ResultColumn",
+      "type": "object"
+    },
+    "SqlPreview": {
+      "additionalProperties": false,
+      "description": "仅审计和查看用，不能回传执行。",
+      "properties": {
+        "dialect": {
+          "const": "duckdb",
+          "default": "duckdb",
+          "title": "Dialect",
+          "type": "string"
+        },
+        "sql": {
+          "title": "Sql",
+          "type": "string"
+        },
+        "parameters": {
+          "additionalProperties": true,
+          "title": "Parameters",
+          "type": "object"
+        },
+        "snapshot": {
+          "$ref": "#/$defs/DataReference"
+        },
+        "catalog_version": {
+          "title": "Catalog Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "sql",
+        "parameters",
+        "snapshot",
+        "catalog_version"
+      ],
+      "title": "SqlPreview",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "request": {
+      "$ref": "#/$defs/PresentationRequest"
+    }
+  },
+  "required": [
+    "request"
+  ],
+  "title": "ValidatedPresentation",
+  "type": "object"
+}

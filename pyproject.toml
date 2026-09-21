@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ai-query-understanding-stage"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = ["agentscope[service]==2.0.8", "duckdb>=1.3,<2", "pydantic>=2.10,<3", "pydantic-settings>=2.6,<3", "uvicorn>=0.30,<1", "httpx>=0.27,<1", "openpyxl>=3.1,<4", "PyYAML>=6,<7", "python-multipart>=0.0.20,<1"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<10", "ruff>=0.9,<1", "httpx>=0.27,<1", "python-dotenv>=1,<2"]
+
+[tool.setuptools.packages.find]
+include = ["app*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I"]

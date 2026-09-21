@@ -1,0 +1,125 @@
+{
+  "$defs": {
+    "EntityFact": {
+      "additionalProperties": false,
+      "properties": {
+        "contract_version": {
+          "const": "understanding-v1",
+          "default": "understanding-v1",
+          "title": "Contract Version",
+          "type": "string"
+        },
+        "field": {
+          "minLength": 1,
+          "title": "Field",
+          "type": "string"
+        },
+        "value": {
+          "minLength": 1,
+          "title": "Value",
+          "type": "string"
+        },
+        "evidence_id": {
+          "minLength": 1,
+          "title": "Evidence Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "field",
+        "value",
+        "evidence_id"
+      ],
+      "title": "EntityFact",
+      "type": "object"
+    },
+    "QuestionRequest": {
+      "additionalProperties": false,
+      "properties": {
+        "contract_version": {
+          "const": "understanding-v1",
+          "default": "understanding-v1",
+          "title": "Contract Version",
+          "type": "string"
+        },
+        "turn_id": {
+          "minLength": 1,
+          "title": "Turn Id",
+          "type": "string"
+        },
+        "source_id": {
+          "minLength": 1,
+          "title": "Source Id",
+          "type": "string"
+        },
+        "catalog_version": {
+          "minLength": 1,
+          "title": "Catalog Version",
+          "type": "string"
+        },
+        "original_question": {
+          "maxLength": 4000,
+          "minLength": 1,
+          "title": "Original Question",
+          "type": "string"
+        },
+        "standalone_question": {
+          "maxLength": 8000,
+          "minLength": 1,
+          "title": "Standalone Question",
+          "type": "string"
+        },
+        "confirmed_entities": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/EntityFact"
+          },
+          "title": "Confirmed Entities",
+          "type": "array"
+        },
+        "assumptions": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Assumptions",
+          "type": "array"
+        },
+        "based_on_turn_ids": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Based On Turn Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "turn_id",
+        "source_id",
+        "catalog_version",
+        "original_question",
+        "standalone_question"
+      ],
+      "title": "QuestionRequest",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "contract_version": {
+      "const": "query-v1",
+      "default": "query-v1",
+      "title": "Contract Version",
+      "type": "string"
+    },
+    "question": {
+      "$ref": "#/$defs/QuestionRequest"
+    }
+  },
+  "required": [
+    "question"
+  ],
+  "title": "QueryRequest",
+  "type": "object"
+}

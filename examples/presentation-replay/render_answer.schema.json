@@ -1,0 +1,325 @@
+{
+  "$defs": {
+    "Candidate": {
+      "additionalProperties": false,
+      "properties": {
+        "contract_version": {
+          "const": "understanding-v1",
+          "default": "understanding-v1",
+          "title": "Contract Version",
+          "type": "string"
+        },
+        "candidate_id": {
+          "minLength": 1,
+          "title": "Candidate Id",
+          "type": "string"
+        },
+        "label": {
+          "minLength": 1,
+          "title": "Label",
+          "type": "string"
+        },
+        "fact": {
+          "$ref": "#/$defs/EntityFact"
+        }
+      },
+      "required": [
+        "candidate_id",
+        "label",
+        "fact"
+      ],
+      "title": "Candidate",
+      "type": "object"
+    },
+    "DataReference": {
+      "additionalProperties": false,
+      "properties": {
+        "snapshot_id": {
+          "title": "Snapshot Id",
+          "type": "string"
+        },
+        "source_id": {
+          "title": "Source Id",
+          "type": "string"
+        },
+        "fetched_at": {
+          "format": "date-time",
+          "title": "Fetched At",
+          "type": "string"
+        },
+        "published_at": {
+          "format": "date-time",
+          "title": "Published At",
+          "type": "string"
+        }
+      },
+      "required": [
+        "snapshot_id",
+        "source_id",
+        "fetched_at",
+        "published_at"
+      ],
+      "title": "DataReference",
+      "type": "object"
+    },
+    "DisplayTable": {
+      "additionalProperties": false,
+      "properties": {
+        "columns": {
+          "items": {
+            "$ref": "#/$defs/ResultColumn"
+          },
+          "title": "Columns",
+          "type": "array"
+        },
+        "rows": {
+          "items": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "type": "object"
+          },
+          "title": "Rows",
+          "type": "array"
+        }
+      },
+      "required": [
+        "columns",
+        "rows"
+      ],
+      "title": "DisplayTable",
+      "type": "object"
+    },
+    "EntityFact": {
+      "additionalProperties": false,
+      "properties": {
+        "contract_version": {
+          "const": "understanding-v1",
+          "default": "understanding-v1",
+          "title": "Contract Version",
+          "type": "string"
+        },
+        "field": {
+          "minLength": 1,
+          "title": "Field",
+          "type": "string"
+        },
+        "value": {
+          "minLength": 1,
+          "title": "Value",
+          "type": "string"
+        },
+        "evidence_id": {
+          "minLength": 1,
+          "title": "Evidence Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "field",
+        "value",
+        "evidence_id"
+      ],
+      "title": "EntityFact",
+      "type": "object"
+    },
+    "QueryFailure": {
+      "additionalProperties": false,
+      "properties": {
+        "module": {
+          "const": "query_execution",
+          "default": "query_execution",
+          "title": "Module",
+          "type": "string"
+        },
+        "node": {
+          "title": "Node",
+          "type": "string"
+        },
+        "code": {
+          "title": "Code",
+          "type": "string"
+        },
+        "message": {
+          "title": "Message",
+          "type": "string"
+        },
+        "retryable": {
+          "default": false,
+          "title": "Retryable",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "node",
+        "code",
+        "message"
+      ],
+      "title": "QueryFailure",
+      "type": "object"
+    },
+    "ResultColumn": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "label": {
+          "title": "Label",
+          "type": "string"
+        },
+        "data_type": {
+          "title": "Data Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "label",
+        "data_type"
+      ],
+      "title": "ResultColumn",
+      "type": "object"
+    },
+    "SqlPreview": {
+      "additionalProperties": false,
+      "description": "仅审计和查看用，不能回传执行。",
+      "properties": {
+        "dialect": {
+          "const": "duckdb",
+          "default": "duckdb",
+          "title": "Dialect",
+          "type": "string"
+        },
+        "sql": {
+          "title": "Sql",
+          "type": "string"
+        },
+        "parameters": {
+          "additionalProperties": true,
+          "title": "Parameters",
+          "type": "object"
+        },
+        "snapshot": {
+          "$ref": "#/$defs/DataReference"
+        },
+        "catalog_version": {
+          "title": "Catalog Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "sql",
+        "parameters",
+        "snapshot",
+        "catalog_version"
+      ],
+      "title": "SqlPreview",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "kind": {
+      "enum": [
+        "scalar",
+        "table",
+        "empty",
+        "clarification",
+        "query_error"
+      ],
+      "title": "Kind",
+      "type": "string"
+    },
+    "question": {
+      "title": "Question",
+      "type": "string"
+    },
+    "message": {
+      "title": "Message",
+      "type": "string"
+    },
+    "table": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/DisplayTable"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "candidates": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/Candidate"
+      },
+      "title": "Candidates",
+      "type": "array"
+    },
+    "notes": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Notes",
+      "type": "array"
+    },
+    "evidence": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/SqlPreview"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "query_trace_id": {
+      "title": "Query Trace Id",
+      "type": "string"
+    },
+    "query_failure": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/QueryFailure"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "display_rows": {
+      "title": "Display Rows",
+      "type": "integer"
+    },
+    "display_cell_characters": {
+      "title": "Display Cell Characters",
+      "type": "integer"
+    },
+    "query_truncated": {
+      "default": false,
+      "title": "Query Truncated",
+      "type": "boolean"
+    },
+    "display_truncated": {
+      "default": false,
+      "title": "Display Truncated",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "kind",
+    "question",
+    "message",
+    "query_trace_id",
+    "display_rows",
+    "display_cell_characters"
+  ],
+  "title": "AnswerView",
+  "type": "object"
+}

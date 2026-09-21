@@ -1,0 +1,17 @@
+.env
+.env.*
+!.env.example
+.git
+**/__pycache__
+**/*.pyc
+**/node_modules
+**/dist
+**/.pytest_cache
+**/.ruff_cache
+**/test-results
+**/playwright-report
+runtime
+validation-*
+tests
+docs
+*.zip

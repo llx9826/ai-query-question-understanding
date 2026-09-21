@@ -1,0 +1,9 @@
+{
+  "agentscope": "2.0.8",
+  "fastapi": "0.141.1",
+  "sqlalchemy": "2.0.53",
+  "pydantic": "2.13.5",
+  "openai": "3.14.0",
+  "sqlglot": "29.0.1",
+  "httpx": "0.28.1"
+}

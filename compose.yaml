@@ -1,0 +1,70 @@
+name: ai-query
+
+services:
+  wren-http:
+    image: "wren-http:${WREN_HTTP_IMAGE_TAG:-0.1.0}"
+    build:
+      context: "${WREN_HTTP_BUILD_CONTEXT:-https://github.com/llx9826/WrenAI.git#wren-http-v0.1.0}"
+      dockerfile: services/wren-http/Dockerfile
+    ports:
+      - "127.0.0.1:${WREN_HTTP_PUBLIC_PORT:-30002}:8001"
+    environment:
+      WREN_HTTP_WORKSPACES_FILE: /srv/config/workspaces.json
+      WREN_HTTP_DUCKDB_ROOT: /srv/data/published
+      WREN_HTTP_WREN_HOME: /srv/config/wren-home
+      WREN_HTTP_HTTP_HOST: 0.0.0.0
+      WREN_HTTP_HTTP_PORT: 8001
+      WREN_HTTP_HTTP_WORKERS: 1
+      WREN_HTTP_ADMIN_TOKEN: "${DEPLOY_WREN_ADMIN_TOKEN:?DEPLOY_WREN_ADMIN_TOKEN is required}"
+      WREN_HTTP_MODEL_API_KEY: "${BAILIAN_API_KEY:?BAILIAN_API_KEY is required}"
+      WREN_HTTP_MODEL_BASE_URL: "${BAILIAN_BASE_URL:-https://dashscope.aliyuncs.com/compatible-mode/v1}"
+      WREN_HTTP_MODEL_NAME: "${BAILIAN_MODEL_NAME:-qwen3.7-plus}"
+      WREN_HTTP_MODEL_TIMEOUT_SECONDS: "${WREN_MODEL_TIMEOUT_SECONDS:-60}"
+      WREN_HTTP_MODEL_REQUEST_LIMIT: "${WREN_MODEL_REQUEST_LIMIT:-12}"
+      WREN_HTTP_MEMORY_ENABLED: "${WREN_MEMORY_ENABLED:-true}"
+      WREN_EMBEDDING_BACKEND: onnx
+    volumes:
+      - query-datasets:/srv/data
+      - wren-config:/srv/config
+    restart: unless-stopped
+    stop_grace_period: 30s
+    init: true
+
+  ai-query:
+    image: "ai-query-question-understanding:${AIQ_IMAGE_TAG:-0.1.0}"
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "${AIQ_PUBLIC_PORT:-30001}:8000"
+    environment:
+      AIQ_DEMO_MODE: "false"
+      AIQ_HTTP_HOST: 0.0.0.0
+      AIQ_HTTP_PORT: 8000
+      AIQ_HTTP_WORKERS: 1
+      AIQ_API_TOKEN: "${DEPLOY_USER_API_TOKEN:?DEPLOY_USER_API_TOKEN is required}"
+      AIQ_WORKSPACE_ID: "${AIQ_WORKSPACE_ID:-conference-2026}"
+      AIQ_CONTROL_DATABASE: /srv/app/control/control.duckdb
+      AIQ_SESSION_WORKSPACE: /srv/app/sessions
+      AIQ_DATASET_ROOT: /srv/app/datasets
+      AIQ_DATASET_MAX_UPLOAD_BYTES: "${AIQ_DATASET_MAX_UPLOAD_BYTES:-52428800}"
+      AIQ_WREN_HTTP_BASE_URL: http://wren-http:8001
+      AIQ_WREN_HTTP_TIMEOUT_SECONDS: "${AIQ_WREN_HTTP_TIMEOUT_SECONDS:-90}"
+      AIQ_WREN_HTTP_ADMIN_TOKEN: "${DEPLOY_WREN_ADMIN_TOKEN:?DEPLOY_WREN_ADMIN_TOKEN is required}"
+      AIQ_WREN_WORKSPACE_TOKEN: "${DEPLOY_WREN_WORKSPACE_TOKEN:?DEPLOY_WREN_WORKSPACE_TOKEN is required}"
+    volumes:
+      - query-control:/srv/app/control
+      - query-sessions:/srv/app/sessions
+      - query-datasets:/srv/app/datasets
+    depends_on:
+      wren-http:
+        condition: service_healthy
+    restart: unless-stopped
+    stop_grace_period: 30s
+    init: true
+
+volumes:
+  query-control:
+  query-sessions:
+  query-datasets:
+  wren-config:

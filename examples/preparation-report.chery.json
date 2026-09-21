@@ -1,0 +1,920 @@
+{
+  "source_id": "chery-summit-excel-2026",
+  "record_count": 2340,
+  "source_field_count": 75,
+  "mapped_field_count": 75,
+  "unmapped_fields": [],
+  "missing_fields": [],
+  "entities": {
+    "registrations": {
+      "additionalProperties": false,
+      "properties": {
+        "registration_id": {
+          "title": "Registration Id",
+          "type": "string"
+        },
+        "full_name": {
+          "title": "Full Name",
+          "type": "string"
+        },
+        "brand": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Brand"
+        },
+        "country": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Country"
+        },
+        "visa_status": {
+          "default": "unknown",
+          "enum": [
+            "completed",
+            "not_required",
+            "unknown"
+          ],
+          "title": "Visa Status",
+          "type": "string"
+        },
+        "reporting_unit": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "填报单位，不等于参会人员所在公司",
+          "title": "Reporting Unit"
+        },
+        "regional_contact": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "大区接口人",
+          "title": "Regional Contact"
+        },
+        "market_contact": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "市场接口人",
+          "title": "Market Contact"
+        },
+        "person_type": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "原表人员类型，如经销商、总代、媒体",
+          "title": "Person Type"
+        },
+        "optional_brand": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "副品牌，未填写不能推导为主品牌",
+          "title": "Optional Brand"
+        },
+        "company_name": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "人员所在公司名，保留原始名称",
+          "title": "Company Name"
+        },
+        "gender": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Gender"
+        },
+        "birth_date": {
+          "anyOf": [
+            {
+              "format": "date",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Birth Date"
+        },
+        "passport_no": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Passport No"
+        },
+        "job_title": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Job Title"
+        },
+        "invitation_requirement": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "原值包含是、免签、已有签证等，不是布尔值",
+          "title": "Invitation Requirement"
+        },
+        "email": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Email"
+        },
+        "media_account": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Media Account"
+        },
+        "vip_mark": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "原表VIP标记，保留1、0或空值，不与活动出席混用",
+          "title": "Vip Mark"
+        },
+        "invitation_status_raw": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "邀请函是否办毕原值，空白不等于未办",
+          "title": "Invitation Status Raw"
+        },
+        "visa_status_raw": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "签证是否办毕原值，与派生visa_status分别保留",
+          "title": "Visa Status Raw"
+        },
+        "inbound_flight_no": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "入境航班原文，可能包含多个航段，不自动拆分",
+          "title": "Inbound Flight No"
+        },
+        "inbound_flight_time": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "入境航班时间原值；起飞/到达及所在时区待确认",
+          "title": "Inbound Flight Time"
+        },
+        "outbound_flight_no": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Outbound Flight No"
+        },
+        "outbound_flight_time": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "离境航班时间原值；不做时区换算",
+          "title": "Outbound Flight Time"
+        }
+      },
+      "required": [
+        "registration_id",
+        "full_name"
+      ],
+      "title": "Registration",
+      "type": "object"
+    },
+    "events": {
+      "additionalProperties": false,
+      "properties": {
+        "event_id": {
+          "title": "Event Id",
+          "type": "string"
+        },
+        "event_date": {
+          "format": "date",
+          "title": "Event Date",
+          "type": "string"
+        },
+        "event_name": {
+          "title": "Event Name",
+          "type": "string"
+        }
+      },
+      "required": [
+        "event_id",
+        "event_date",
+        "event_name"
+      ],
+      "title": "Event",
+      "type": "object"
+    },
+    "participations": {
+      "additionalProperties": false,
+      "properties": {
+        "registration_id": {
+          "title": "Registration Id",
+          "type": "string"
+        },
+        "event_id": {
+          "title": "Event Id",
+          "type": "string"
+        },
+        "selected": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Selected"
+        }
+      },
+      "required": [
+        "registration_id",
+        "event_id",
+        "selected"
+      ],
+      "title": "Participation",
+      "type": "object"
+    }
+  },
+  "source_mapping": [
+    {
+      "source_field_id": "xlsx_5ccec54a5fd623f845e2fb2a",
+      "source_name": "序号/No.",
+      "entity": "registrations",
+      "field": "registration_id"
+    },
+    {
+      "source_field_id": "xlsx_d82580672156c6fab14a09b9",
+      "source_name": "填报单位",
+      "entity": "registrations",
+      "field": "reporting_unit"
+    },
+    {
+      "source_field_id": "xlsx_7cdb0aef49b2b5538666afbe",
+      "source_name": "大区接口人",
+      "entity": "registrations",
+      "field": "regional_contact"
+    },
+    {
+      "source_field_id": "xlsx_c0af703a8e703bef38a8eeaf",
+      "source_name": "市场接口人",
+      "entity": "registrations",
+      "field": "market_contact"
+    },
+    {
+      "source_field_id": "xlsx_8db39dc1656f96f032adb4d2",
+      "source_name": "全名【与护照上的顺序保持一致】",
+      "entity": "registrations",
+      "field": "full_name"
+    },
+    {
+      "source_field_id": "xlsx_fb9b835c28eef3bb2d9c1071",
+      "source_name": "品牌",
+      "entity": "registrations",
+      "field": "brand"
+    },
+    {
+      "source_field_id": "xlsx_4fc2e6c77b11711327cf4e74",
+      "source_name": "邀请国家",
+      "entity": "registrations",
+      "field": "country"
+    },
+    {
+      "source_field_id": "xlsx_f3d48b2974cf7568db980c9f",
+      "source_name": "人员类型",
+      "entity": "registrations",
+      "field": "person_type"
+    },
+    {
+      "source_field_id": "xlsx_179643ed90a6f23dffca403b",
+      "source_name": "副品牌/Optional Brand",
+      "entity": "registrations",
+      "field": "optional_brand"
+    },
+    {
+      "source_field_id": "xlsx_4cb97bfe1976f04aa2dca657",
+      "source_name": "所在公司名",
+      "entity": "registrations",
+      "field": "company_name"
+    },
+    {
+      "source_field_id": "xlsx_a752a7d8c127ff1554a7ebec",
+      "source_name": "性别",
+      "entity": "registrations",
+      "field": "gender"
+    },
+    {
+      "source_field_id": "xlsx_8f5ecd9fc26937ef19dc3c12",
+      "source_name": "生日",
+      "entity": "registrations",
+      "field": "birth_date"
+    },
+    {
+      "source_field_id": "xlsx_e4a085f4e8754790b88eee46",
+      "source_name": "护照号",
+      "entity": "registrations",
+      "field": "passport_no"
+    },
+    {
+      "source_field_id": "xlsx_9e77992be03d5eb14438a364",
+      "source_name": "职务",
+      "entity": "registrations",
+      "field": "job_title"
+    },
+    {
+      "source_field_id": "xlsx_34e5fdb7332a86418e4260f9",
+      "source_name": "是否需要邀请函",
+      "entity": "registrations",
+      "field": "invitation_requirement"
+    },
+    {
+      "source_field_id": "xlsx_2e412e03837f7df036b54f13",
+      "source_name": "邮箱地址",
+      "entity": "registrations",
+      "field": "email"
+    },
+    {
+      "source_field_id": "xlsx_6d26c8372ba91d6812b13a16",
+      "source_name": "媒体名称或个人账号",
+      "entity": "registrations",
+      "field": "media_account"
+    },
+    {
+      "source_field_id": "xlsx_2bd5231db1576492b992a660",
+      "source_name": "是否为作战单元VIP",
+      "entity": "registrations",
+      "field": "vip_mark"
+    },
+    {
+      "source_field_id": "xlsx_70f00ced11fde5eab61f9329",
+      "source_name": "邀请函是否办毕",
+      "entity": "registrations",
+      "field": "invitation_status_raw"
+    },
+    {
+      "source_field_id": "xlsx_ad4ab98e6d441074f82466d5",
+      "source_name": "签证是否办毕",
+      "entity": "registrations",
+      "field": "visa_status_raw"
+    },
+    {
+      "source_field_id": "xlsx_46fde23c1cb9d28c8acdd773",
+      "source_name": "入境航班号",
+      "entity": "registrations",
+      "field": "inbound_flight_no"
+    },
+    {
+      "source_field_id": "xlsx_a2f3b193e703b50186a899e0",
+      "source_name": "入境航班时间",
+      "entity": "registrations",
+      "field": "inbound_flight_time"
+    },
+    {
+      "source_field_id": "xlsx_78fad0ff52fcb5ebf559884f",
+      "source_name": "离境航班号",
+      "entity": "registrations",
+      "field": "outbound_flight_no"
+    },
+    {
+      "source_field_id": "xlsx_9d4bc5202f0459a6f0630181",
+      "source_name": "离境航班时间",
+      "entity": "registrations",
+      "field": "outbound_flight_time"
+    },
+    {
+      "source_field_id": "xlsx_57f73c1658dadd634c178e9d",
+      "source_name": "4月22日C品牌长测",
+      "entity": "participations",
+      "field": "selected:event_57f73c1658dadd634c178e9d"
+    },
+    {
+      "source_field_id": "xlsx_9944c8e4ae212659420246f7",
+      "source_name": "4月23日E品牌新品品鉴会",
+      "entity": "participations",
+      "field": "selected:event_9944c8e4ae212659420246f7"
+    },
+    {
+      "source_field_id": "xlsx_9b0aa32a8adb1764bec7aa21",
+      "source_name": "4月24日-北京车展活动",
+      "entity": "participations",
+      "field": "selected:event_9b0aa32a8adb1764bec7aa21"
+    },
+    {
+      "source_field_id": "xlsx_db9c45afc2b703cac6c53186",
+      "source_name": "4月24日E品牌之夜",
+      "entity": "participations",
+      "field": "selected:event_db9c45afc2b703cac6c53186"
+    },
+    {
+      "source_field_id": "xlsx_d992a8842d7586327513726c",
+      "source_name": "4月25日E品牌试驾赛道体验",
+      "entity": "participations",
+      "field": "selected:event_d992a8842d7586327513726c"
+    },
+    {
+      "source_field_id": "xlsx_c81bed32b39f88990d5bba36",
+      "source_name": "4月25日OJ马拉松长测",
+      "entity": "participations",
+      "field": "selected:event_c81bed32b39f88990d5bba36"
+    },
+    {
+      "source_field_id": "xlsx_5ccf39ebb2fa2b798b86c616",
+      "source_name": "4月25日OJ-OX车型品鉴会",
+      "entity": "participations",
+      "field": "selected:event_5ccf39ebb2fa2b798b86c616"
+    },
+    {
+      "source_field_id": "xlsx_71310d57da89462ffa4d63bb",
+      "source_name": "4月25日LEPAS长测",
+      "entity": "participations",
+      "field": "selected:event_71310d57da89462ffa4d63bb"
+    },
+    {
+      "source_field_id": "xlsx_9f1503f69b63be950f1a1455",
+      "source_name": "4月25日icar品牌之旅合肥-芜湖",
+      "entity": "participations",
+      "field": "selected:event_9f1503f69b63be950f1a1455"
+    },
+    {
+      "source_field_id": "xlsx_645716eb00bd5d56662d0cff",
+      "source_name": "4月25日icar新品品鉴调研",
+      "entity": "participations",
+      "field": "selected:event_645716eb00bd5d56662d0cff"
+    },
+    {
+      "source_field_id": "xlsx_395f72db7a80311fbe3c7eea",
+      "source_name": "4月25日Luxeed保密鉴赏会",
+      "entity": "participations",
+      "field": "selected:event_395f72db7a80311fbe3c7eea"
+    },
+    {
+      "source_field_id": "xlsx_3c3ab892f4cc7ecef4845bbb",
+      "source_name": "4月25日FR品牌之夜",
+      "entity": "participations",
+      "field": "selected:event_3c3ab892f4cc7ecef4845bbb"
+    },
+    {
+      "source_field_id": "xlsx_f38ba55d9d180afba48fc930",
+      "source_name": "4月26日C品牌经销商大会",
+      "entity": "participations",
+      "field": "selected:event_f38ba55d9d180afba48fc930"
+    },
+    {
+      "source_field_id": "xlsx_0b3c2017726c6ae3c0267c71",
+      "source_name": "4月26日C品牌碰撞测试",
+      "entity": "participations",
+      "field": "selected:event_0b3c2017726c6ae3c0267c71"
+    },
+    {
+      "source_field_id": "xlsx_2f3980647452514c53b88c9a",
+      "source_name": "4月26日C品牌场地试驾",
+      "entity": "participations",
+      "field": "selected:event_2f3980647452514c53b88c9a"
+    },
+    {
+      "source_field_id": "xlsx_5c96c2e30b8be8bba5ed63f9",
+      "source_name": "4月26日OJ-OX车型品鉴会-老船厂",
+      "entity": "participations",
+      "field": "selected:event_5c96c2e30b8be8bba5ed63f9"
+    },
+    {
+      "source_field_id": "xlsx_74f38644aa8307abd0f18f76",
+      "source_name": "4月26日OJ场地试驾",
+      "entity": "participations",
+      "field": "selected:event_74f38644aa8307abd0f18f76"
+    },
+    {
+      "source_field_id": "xlsx_0059eb5cf491267ff1b22ead",
+      "source_name": "4月26日OJ-新品品鉴会",
+      "entity": "participations",
+      "field": "selected:event_0059eb5cf491267ff1b22ead"
+    },
+    {
+      "source_field_id": "xlsx_085470b0806cde7e3383c7c6",
+      "source_name": "4月26日Oj-VPD体验",
+      "entity": "participations",
+      "field": "selected:event_085470b0806cde7e3383c7c6"
+    },
+    {
+      "source_field_id": "xlsx_015edb6d5a9b0824cf232f39",
+      "source_name": "4月26日OJ工厂参观",
+      "entity": "participations",
+      "field": "selected:event_015edb6d5a9b0824cf232f39"
+    },
+    {
+      "source_field_id": "xlsx_3207449c504f31b87fdcffda",
+      "source_name": "4月26日OJ新百万发布会暨下线仪式",
+      "entity": "participations",
+      "field": "selected:event_3207449c504f31b87fdcffda"
+    },
+    {
+      "source_field_id": "xlsx_0bc19a15f1958f9ea0920140",
+      "source_name": "4月26日EBRO专项活动",
+      "entity": "participations",
+      "field": "selected:event_0bc19a15f1958f9ea0920140"
+    },
+    {
+      "source_field_id": "xlsx_75a59c54276a60e569643b9a",
+      "source_name": "4月26日icar品牌伙伴峰会",
+      "entity": "participations",
+      "field": "selected:event_75a59c54276a60e569643b9a"
+    },
+    {
+      "source_field_id": "xlsx_1f7457ca064989ac6e146890",
+      "source_name": "4月26日icar工厂参观",
+      "entity": "participations",
+      "field": "selected:event_1f7457ca064989ac6e146890"
+    },
+    {
+      "source_field_id": "xlsx_92e48c445724029bc0625a41",
+      "source_name": "4月26日icar共创生态展",
+      "entity": "participations",
+      "field": "selected:event_92e48c445724029bc0625a41"
+    },
+    {
+      "source_field_id": "xlsx_dbd0c0765ac67d30c0b42565",
+      "source_name": "4月26日icar新品品鉴调研",
+      "entity": "participations",
+      "field": "selected:event_dbd0c0765ac67d30c0b42565"
+    },
+    {
+      "source_field_id": "xlsx_166461a714a5a4645f74e5bc",
+      "source_name": "4月26日icar品牌探享之旅",
+      "entity": "participations",
+      "field": "selected:event_166461a714a5a4645f74e5bc"
+    },
+    {
+      "source_field_id": "xlsx_97f30635cc1bb925d78bf33f",
+      "source_name": "4月26日Luxeed保密车型鉴赏",
+      "entity": "participations",
+      "field": "selected:event_97f30635cc1bb925d78bf33f"
+    },
+    {
+      "source_field_id": "xlsx_1d7dd9f52095931bdbb96359",
+      "source_name": "4月26日Luxeed城市智能化试乘",
+      "entity": "participations",
+      "field": "selected:event_1d7dd9f52095931bdbb96359"
+    },
+    {
+      "source_field_id": "xlsx_2016c7a0502b807854eda35b",
+      "source_name": "4月26日Luxeed长测",
+      "entity": "participations",
+      "field": "selected:event_2016c7a0502b807854eda35b"
+    },
+    {
+      "source_field_id": "xlsx_efe2484787bdd1e69117164e",
+      "source_name": "4月26日FR实车调研",
+      "entity": "participations",
+      "field": "selected:event_efe2484787bdd1e69117164e"
+    },
+    {
+      "source_field_id": "xlsx_73f029ddbb717d8eeeb852bb",
+      "source_name": "4月26日luxeed保密车型鉴赏",
+      "entity": "participations",
+      "field": "selected:event_73f029ddbb717d8eeeb852bb"
+    },
+    {
+      "source_field_id": "xlsx_7490c7aaeb93faf95e580761",
+      "source_name": "4月26日FR小型媒体鉴赏会",
+      "entity": "participations",
+      "field": "selected:event_7490c7aaeb93faf95e580761"
+    },
+    {
+      "source_field_id": "xlsx_31479ad0f3be7e428f59878b",
+      "source_name": "4月26日LEPAS经销商大会",
+      "entity": "participations",
+      "field": "selected:event_31479ad0f3be7e428f59878b"
+    },
+    {
+      "source_field_id": "xlsx_598d7cc8fd26a6722fb8477a",
+      "source_name": "4月26日LEPAS草坪派对",
+      "entity": "participations",
+      "field": "selected:event_598d7cc8fd26a6722fb8477a"
+    },
+    {
+      "source_field_id": "xlsx_9a9cc9948cadf1c872f5bf84",
+      "source_name": "4月26日LEPAS场地试驾",
+      "entity": "participations",
+      "field": "selected:event_9a9cc9948cadf1c872f5bf84"
+    },
+    {
+      "source_field_id": "xlsx_9fd76058b41389a5bc872644",
+      "source_name": "4月26日Luxeed智能化试乘",
+      "entity": "participations",
+      "field": "selected:event_9fd76058b41389a5bc872644"
+    },
+    {
+      "source_field_id": "xlsx_84ed5e7db843a32bf03e2203",
+      "source_name": "4月27日icar品牌伙伴峰会",
+      "entity": "participations",
+      "field": "selected:event_84ed5e7db843a32bf03e2203"
+    },
+    {
+      "source_field_id": "xlsx_8f069c5176c27dcdb0e3088d",
+      "source_name": "4月27日Luxeed智能化试乘",
+      "entity": "participations",
+      "field": "selected:event_8f069c5176c27dcdb0e3088d"
+    },
+    {
+      "source_field_id": "xlsx_93e18bca18beb85dc7cde3d4",
+      "source_name": "4月27日Luxeed工厂参观",
+      "entity": "participations",
+      "field": "selected:event_93e18bca18beb85dc7cde3d4"
+    },
+    {
+      "source_field_id": "xlsx_73033ff4de0310dd21343580",
+      "source_name": "4月27日LEPAS场地试驾",
+      "entity": "participations",
+      "field": "selected:event_73033ff4de0310dd21343580"
+    },
+    {
+      "source_field_id": "xlsx_8d15a116e4b760b9e1411caa",
+      "source_name": "4月27日LEPAS签约活动",
+      "entity": "participations",
+      "field": "selected:event_8d15a116e4b760b9e1411caa"
+    },
+    {
+      "source_field_id": "xlsx_19f458b9980e66d184fc8911",
+      "source_name": "4月27日墨甲发布会",
+      "entity": "participations",
+      "field": "selected:event_19f458b9980e66d184fc8911"
+    },
+    {
+      "source_field_id": "xlsx_dfccc29f43635fc9a16e106a",
+      "source_name": "4月27日C品牌产品共创",
+      "entity": "participations",
+      "field": "selected:event_dfccc29f43635fc9a16e106a"
+    },
+    {
+      "source_field_id": "xlsx_5b150203f852f5ed760afde6",
+      "source_name": "4月27日OJ工厂参观",
+      "entity": "participations",
+      "field": "selected:event_5b150203f852f5ed760afde6"
+    },
+    {
+      "source_field_id": "xlsx_3ca266debf4cd7a0e97a4dbb",
+      "source_name": "4月27日OJ VPD体验",
+      "entity": "participations",
+      "field": "selected:event_3ca266debf4cd7a0e97a4dbb"
+    },
+    {
+      "source_field_id": "xlsx_1b61cebe9404bd6febce2c7b",
+      "source_name": "4月27日OJ经销商大会",
+      "entity": "participations",
+      "field": "selected:event_1b61cebe9404bd6febce2c7b"
+    },
+    {
+      "source_field_id": "xlsx_9756f58ac4de9de478ce52e0",
+      "source_name": "4月28日LEPAS工厂参观",
+      "entity": "participations",
+      "field": "selected:event_9756f58ac4de9de478ce52e0"
+    },
+    {
+      "source_field_id": "xlsx_30189e11073daeac201267c5",
+      "source_name": "4月28日Luxeed智能化试乘",
+      "entity": "participations",
+      "field": "selected:event_30189e11073daeac201267c5"
+    },
+    {
+      "source_field_id": "xlsx_e48dea5ee977b3ebced0ebcd",
+      "source_name": "4月28日【主题大会】",
+      "entity": "participations",
+      "field": "selected:event_e48dea5ee977b3ebced0ebcd"
+    },
+    {
+      "source_field_id": "xlsx_a3e9183531088d1784f6f9bb",
+      "source_name": "4月28日【音乐节】",
+      "entity": "participations",
+      "field": "selected:event_a3e9183531088d1784f6f9bb"
+    }
+  ],
+  "empty_counts": {
+    "xlsx_5ccec54a5fd623f845e2fb2a": 0,
+    "xlsx_d82580672156c6fab14a09b9": 1,
+    "xlsx_7cdb0aef49b2b5538666afbe": 83,
+    "xlsx_c0af703a8e703bef38a8eeaf": 21,
+    "xlsx_8db39dc1656f96f032adb4d2": 3,
+    "xlsx_fb9b835c28eef3bb2d9c1071": 12,
+    "xlsx_4fc2e6c77b11711327cf4e74": 30,
+    "xlsx_f3d48b2974cf7568db980c9f": 8,
+    "xlsx_179643ed90a6f23dffca403b": 2340,
+    "xlsx_4cb97bfe1976f04aa2dca657": 441,
+    "xlsx_a752a7d8c127ff1554a7ebec": 192,
+    "xlsx_8f5ecd9fc26937ef19dc3c12": 275,
+    "xlsx_e4a085f4e8754790b88eee46": 85,
+    "xlsx_9e77992be03d5eb14438a364": 1954,
+    "xlsx_34e5fdb7332a86418e4260f9": 44,
+    "xlsx_2e412e03837f7df036b54f13": 2329,
+    "xlsx_6d26c8372ba91d6812b13a16": 2314,
+    "xlsx_2bd5231db1576492b992a660": 1732,
+    "xlsx_70f00ced11fde5eab61f9329": 1506,
+    "xlsx_ad4ab98e6d441074f82466d5": 1642,
+    "xlsx_46fde23c1cb9d28c8acdd773": 129,
+    "xlsx_a2f3b193e703b50186a899e0": 350,
+    "xlsx_78fad0ff52fcb5ebf559884f": 910,
+    "xlsx_9d4bc5202f0459a6f0630181": 970,
+    "xlsx_57f73c1658dadd634c178e9d": 2074,
+    "xlsx_9944c8e4ae212659420246f7": 2029,
+    "xlsx_9b0aa32a8adb1764bec7aa21": 193,
+    "xlsx_db9c45afc2b703cac6c53186": 1804,
+    "xlsx_d992a8842d7586327513726c": 1956,
+    "xlsx_c81bed32b39f88990d5bba36": 2001,
+    "xlsx_5ccf39ebb2fa2b798b86c616": 1723,
+    "xlsx_71310d57da89462ffa4d63bb": 2043,
+    "xlsx_9f1503f69b63be950f1a1455": 2030,
+    "xlsx_645716eb00bd5d56662d0cff": 1876,
+    "xlsx_395f72db7a80311fbe3c7eea": 2301,
+    "xlsx_3c3ab892f4cc7ecef4845bbb": 1973,
+    "xlsx_f38ba55d9d180afba48fc930": 1318,
+    "xlsx_0b3c2017726c6ae3c0267c71": 1353,
+    "xlsx_2f3980647452514c53b88c9a": 2272,
+    "xlsx_5c96c2e30b8be8bba5ed63f9": 1917,
+    "xlsx_74f38644aa8307abd0f18f76": 2205,
+    "xlsx_0059eb5cf491267ff1b22ead": 1766,
+    "xlsx_085470b0806cde7e3383c7c6": 2281,
+    "xlsx_015edb6d5a9b0824cf232f39": 2218,
+    "xlsx_3207449c504f31b87fdcffda": 1348,
+    "xlsx_0bc19a15f1958f9ea0920140": 2298,
+    "xlsx_75a59c54276a60e569643b9a": 2209,
+    "xlsx_1f7457ca064989ac6e146890": 2320,
+    "xlsx_92e48c445724029bc0625a41": 2030,
+    "xlsx_dbd0c0765ac67d30c0b42565": 2014,
+    "xlsx_166461a714a5a4645f74e5bc": 2340,
+    "xlsx_97f30635cc1bb925d78bf33f": 2325,
+    "xlsx_1d7dd9f52095931bdbb96359": 2330,
+    "xlsx_2016c7a0502b807854eda35b": 2329,
+    "xlsx_efe2484787bdd1e69117164e": 2340,
+    "xlsx_73f029ddbb717d8eeeb852bb": 2065,
+    "xlsx_7490c7aaeb93faf95e580761": 2076,
+    "xlsx_31479ad0f3be7e428f59878b": 1888,
+    "xlsx_598d7cc8fd26a6722fb8477a": 1947,
+    "xlsx_9a9cc9948cadf1c872f5bf84": 1962,
+    "xlsx_9fd76058b41389a5bc872644": 2084,
+    "xlsx_84ed5e7db843a32bf03e2203": 1870,
+    "xlsx_8f069c5176c27dcdb0e3088d": 2047,
+    "xlsx_93e18bca18beb85dc7cde3d4": 2107,
+    "xlsx_73033ff4de0310dd21343580": 1917,
+    "xlsx_8d15a116e4b760b9e1411caa": 2028,
+    "xlsx_19f458b9980e66d184fc8911": 613,
+    "xlsx_dfccc29f43635fc9a16e106a": 1604,
+    "xlsx_5b150203f852f5ed760afde6": 1981,
+    "xlsx_3ca266debf4cd7a0e97a4dbb": 2201,
+    "xlsx_1b61cebe9404bd6febce2c7b": 1515,
+    "xlsx_9756f58ac4de9de478ce52e0": 2004,
+    "xlsx_30189e11073daeac201267c5": 2107,
+    "xlsx_e48dea5ee977b3ebced0ebcd": 195,
+    "xlsx_a3e9183531088d1784f6f9bb": 115
+  },
+  "semantic_rules": [
+    "registrations 的粒度是同一来源、同一快照内的一条原表报名记录；序号作为ID，不按姓名或护照自动合并。",
+    "24个基础属性保留为报名信息宽表；51个活动列映射成活动目录及报名记录与活动的关系。",
+    "活动1表示计划出席，0表示未选中，空白表示未知；不推导签到或实际到场。",
+    "活动目录保留全部活动，包括零人计划出席的活动；本次活动年份为2026。",
+    "每条报名记录与每个活动保留一条关系；统计报名人数时需要按报名记录ID去重。",
+    "邀请国家、人员所属品牌、填报单位和所在公司是不同属性，不互相推导。",
+    "签证原值与派生状态同时保留，空白不等于未办理；其他字段未填写也不补造。",
+    "航班时间保留原始日历时间及存在的时区偏移；无偏移值不擅自指定时区。"
+  ],
+  "open_questions": [
+    "入境/离境航班时间的起飞或抵达含义、时区尚未确认，不能推算抵达时间或接机安排。",
+    "VIP字段保留1/0/空白原值，活动的1=计划出席规则不自动套用到VIP。",
+    "相似活动名是否同一活动尚未确认，不自动合并大小写不同的列。",
+    "是否需要邀请函含是、免签、已有签证、240小时过境签，保留分类原值，不能按布尔值解读。"
+  ]
+}

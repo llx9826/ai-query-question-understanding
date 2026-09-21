@@ -1,0 +1,620 @@
+{
+  "summary": {
+    "cases": 20,
+    "answer_behavior_pass": 18,
+    "answerable_cases": 17,
+    "data_answer_pass": 15,
+    "canonical_contract_pass": 17,
+    "strict_module_closure": 14,
+    "audit_complete_cases": 19,
+    "context_saved_cases": 20,
+    "audit_model_calls": 50,
+    "mean_seconds": 44.26805,
+    "median_seconds": 47.8045,
+    "max_seconds": 72.289,
+    "business_database_unchanged": true,
+    "business_code_unchanged": true,
+    "model_judge_calls": 0,
+    "note": "Narrative content requires manual review in report; narration_completed only checks technical completion."
+  },
+  "cases": [
+    {
+      "id": "O01",
+      "question": "CHERY有多少人？",
+      "answerable": true,
+      "answer_behavior_pass": true,
+      "canonical_contract_pass": true,
+      "narration_completed": true,
+      "context_saved": true,
+      "sql_replay_equal": true,
+      "audit_complete": true,
+      "strict_module_closure": true,
+      "seconds": 51.121,
+      "audit_model_calls": 3,
+      "actual_rows": [
+        {
+          "registration_count": 775
+        }
+      ],
+      "narrative": "报名人数中，所属品牌为CHERY的报名记录共有775条。",
+      "outcome_status": "ready",
+      "outcome_reason": "ready",
+      "query_status": "ok",
+      "trace_id": "5f3f84e8d01845a28ed7ab2abee6684b"
+    },
+    {
+      "id": "O02",
+      "question": "其中参加主题大会的呢？",
+      "answerable": true,
+      "answer_behavior_pass": true,
+      "canonical_contract_pass": true,
+      "narration_completed": true,
+      "context_saved": true,
+      "sql_replay_equal": true,
+      "audit_complete": true,
+      "strict_module_closure": true,
+      "seconds": 47.916,
+      "audit_model_calls": 3,
+      "actual_rows": [
+        {
+          "planned_attendee_count": 656
+        }
+      ],
+      "narrative": "所属品牌为CHERY的报名记录中，参加【主题大会】（2026-04-28）计划出席（selected=true）的报名记录共有 656 条。该结果按报名记录计数，1表示计划出席，不代表实际签到。",
+      "outcome_status": "ready",
+      "outcome_reason": "ready",
+      "query_status": "ok",
+      "trace_id": "a104ef68a2de459cadac935890506d17"
+    },
+    {
+      "id": "O03",
+      "question": "改成EXEED。",
+      "answerable": true,
+      "answer_behavior_pass": true,
+      "canonical_contract_pass": true,
+      "narration_completed": true,
+      "context_saved": true,
+      "sql_replay_equal": true,
+      "audit_complete": true,
+      "strict_module_closure": true,
+      "seconds": 49.261,
+      "audit_model_calls": 3,
+      "actual_rows": [
+        {
+          "count": 75
+        }
+      ],
+      "narrative": "所属品牌为EXEED的报名记录中，参加【主题大会】（2026-04-28）计划出席（selected=true）的报名记录共有75条。注意：selected=1表示计划出席，不代表实际签到。",
+      "outcome_status": "ready",
+      "outcome_reason": "ready",
+      "query_status": "ok",
+      "trace_id": "41f36eb0716045f2a33a2753773c0e65"
+    },
+    {
+      "id": "O04",
+      "question": "英国一共有多少人？UK也算英国。",
+      "answerable": true,
+      "answer_behavior_pass": true,
+      "canonical_contract_pass": true,
+      "narration_completed": true,
+      "context_saved": true,
+      "sql_replay_equal": true,
+      "audit_complete": true,
+      "strict_module_closure": true,
+      "seconds": 51.832,
+      "audit_model_calls": 3,
+      "actual_rows": [
+        {
+          "count": 105
+        }
+      ],
+      "narrative": "按报名记录数统计，邀请国家为“英国”或“UK”的记录共有 105 条。",
+      "outcome_status": "ready",
+      "outcome_reason": "ready",
+      "query_status": "ok",
+      "trace_id": "0c2a7a15084b4b4ca9a9d799c4746d46"
+    },
+    {
+      "id": "O05",
+      "question": "4月26日，CHERY人员参加哪些活动？",
+      "answerable": true,
+      "answer_behavior_pass": true,
+      "canonical_contract_pass": true,
+      "narration_completed": true,
+      "context_saved": true,
+      "sql_replay_equal": true,
+      "audit_complete": true,
+      "strict_module_closure": true,
+      "seconds": 49.56,
+      "audit_model_calls": 3,
+      "actual_rows": [
+        {
+          "event_id": "event_0b3c2017726c6ae3c0267c71",
+          "event_name": "C品牌碰撞测试"
+        },
+        {
+          "event_id": "event_f38ba55d9d180afba48fc930",
+          "event_name": "C品牌经销商大会"
+        },
+        {
+          "event_id": "event_3207449c504f31b87fdcffda",
+          "event_name": "OJ新百万发布会暨下线仪式"
+        },
+        {
+          "event_id": "event_0059eb5cf491267ff1b22ead",
+          "event_name": "OJ-新品品鉴会"
+        },
+        {
+          "event_id": "event_2f3980647452514c53b88c9a",
+          "event_name": "C品牌场地试驾"
+        },
+        {
+          "event_id": "event_598d7cc8fd26a6722fb8477a",
+          "event_name": "LEPAS草坪派对"
+        },
+        {
+          "event_id": "event_0bc19a15f1958f9ea0920140",
+          "event_name": "EBRO专项活动"
+        },
+        {
+          "event_id": "event_31479ad0f3be7e428f59878b",
+          "event_name": "LEPAS经销商大会"
+        },
+        {
+          "event_id": "event_9a9cc9948cadf1c872f5bf84",
+          "event_name": "LEPAS场地试驾"
+        },
+        {
+          "event_id": "event_97f30635cc1bb925d78bf33f",
+          "event_name": "Luxeed保密车型鉴赏"
+        },
+        {
+          "event_id": "event_2016c7a0502b807854eda35b",
+          "event_name": "Luxeed长测"
+        },
+        {
+          "event_id": "event_7490c7aaeb93faf95e580761",
+          "event_name": "FR小型媒体鉴赏会"
+        },
+        {
+          "event_id": "event_92e48c445724029bc0625a41",
+          "event_name": "icar共创生态展"
+        },
+        {
+          "event_id": "event_5c96c2e30b8be8bba5ed63f9",
+          "event_name": "OJ-OX车型品鉴会-老船厂"
+        }
+      ],
+      "narrative": "2026年4月26日举行的活动中，报名记录所属品牌为CHERY且计划出席（标记为true）的人员参加的活动共14个：C品牌碰撞测试、C品牌经销商大会、OJ新百万发布会暨下线仪式、OJ-新品品鉴会、C品牌场地试驾、LEPAS草坪派对、EBRO专项活动、LEPAS经销商大会、LEPAS场地试驾、Luxeed保密车型鉴赏、Luxeed长测、FR小型媒体鉴赏会、icar共创生态展、OJ-OX车型品鉴会-老船厂。注意：计划出席不代表实际签到。",
+      "outcome_status": "ready",
+      "outcome_reason": "ready",
+      "query_status": "ok",
+      "trace_id": "c858d6437c4d49898dd415c641cb124f"
+    },
+    {
+      "id": "O06",
+      "question": "列出参加主题大会的前10条报名记录。",
+      "answerable": true,
+      "answer_behavior_pass": true,
+      "canonical_contract_pass": true,
+      "narration_completed": true,
+      "context_saved": true,
+      "sql_replay_equal": true,
+      "audit_complete": true,
+      "strict_module_closure": true,
+      "seconds": 46.929,
+      "audit_model_calls": 3,
+      "actual_rows": [
+        {
+          "registration_id": "1"
+        },
+        {
+          "registration_id": "10"
+        },
+        {
+          "registration_id": "1000"
+        },
+        {
+          "registration_id": "1009"
+        },
+        {
+          "registration_id": "1010"
+        },
+        {
+          "registration_id": "1011"
+        },
+        {
+          "registration_id": "1012"
+        },
+        {
+          "registration_id": "1013"
+        },
+        {
+          "registration_id": "1014"
+        },
+        {
+          "registration_id": "1015"
+        }
+      ],
+      "narrative": "计划出席2026年4月28日【主题大会】活动的报名记录，按序号取前10条如下：1、10、1000、1009、1010、1011、1012、1013、1014、1015。其中“计划出席”不代表实际签到，人数按报名记录计数。",
+      "outcome_status": "ready",
+      "outcome_reason": "ready",
+      "query_status": "ok",
+      "trace_id": "42c72c788219429c84149d1c293c1fdb"
+    },
+    {
+      "id": "O07",
+      "question": "BOTMA JOHANNES ADRIAAN参加哪些活动？",
+      "answerable": false,
+      "answer_behavior_pass": true,
+      "canonical_contract_pass": true,
+      "narration_completed": true,
+      "context_saved": true,
+      "sql_replay_equal": null,
+      "audit_complete": false,
+      "strict_module_closure": false,
+      "seconds": 32.242,
+      "audit_model_calls": 0,
+      "actual_rows": null,
+      "narrative": null,
+      "outcome_status": "ready",
+      "outcome_reason": "ready",
+      "query_status": "clarification",
+      "trace_id": "0e709a3364394572a746ac9f60fe7eba"
+    },
+    {
+      "id": "O08",
+      "question": "同时参加主题大会和音乐节的有多少人？",
+      "answerable": true,
+      "answer_behavior_pass": true,
+      "canonical_contract_pass": true,
+      "narration_completed": true,
+      "context_saved": true,
+      "sql_replay_equal": true,
+      "audit_complete": true,
+      "strict_module_closure": true,
+      "seconds": 46.571,
+      "audit_model_calls": 3,
+      "actual_rows": [
+        {
+          "count": 1796
+        }
+      ],
+      "narrative": "同时参加【主题大会】和【音乐节】两场活动且计划出席标记均为1的报名记录去重数为 1796。注意：计划出席不代表实际签到。",
+      "outcome_status": "ready",
+      "outcome_reason": "ready",
+      "query_status": "ok",
+      "trace_id": "7cc3dc6373fe4a449b9dc01355d909f5"
+    },
+    {
+      "id": "O09",
+      "question": "主题大会实际签到多少人？",
+      "answerable": false,
+      "answer_behavior_pass": true,
+      "canonical_contract_pass": false,
+      "narration_completed": true,
+      "context_saved": true,
+      "sql_replay_equal": null,
+      "audit_complete": true,
+      "strict_module_closure": false,
+      "seconds": 15.003,
+      "audit_model_calls": 1,
+      "actual_rows": null,
+      "narrative": null,
+      "outcome_status": "clarification",
+      "outcome_reason": "ambiguous",
+      "query_status": null,
+      "trace_id": "1e37f25460fc49e68981c2777d41095c"
+    },
+    {
+      "id": "O10",
+      "question": "帮我写一首关于春天的诗。",
+      "answerable": false,
+      "answer_behavior_pass": true,
+      "canonical_contract_pass": true,
+      "narration_completed": true,
+      "context_saved": true,
+      "sql_replay_equal": null,
+      "audit_complete": true,
+      "strict_module_closure": true,
+      "seconds": 16.373,
+      "audit_model_calls": 1,
+      "actual_rows": null,
+      "narrative": null,
+      "outcome_status": "rejected",
+      "outcome_reason": "out_of_scope",
+      "query_status": null,
+      "trace_id": "92d973ed02724b2498f98bb64c4e9ca9"
+    },
+    {
+      "id": "N01",
+      "question": "O&J中，参加主题大会或音乐节任意一个活动的报名人数是多少？",
+      "answerable": true,
+      "answer_behavior_pass": true,
+      "canonical_contract_pass": true,
+      "narration_completed": true,
+      "context_saved": true,
+      "sql_replay_equal": true,
+      "audit_complete": true,
+      "strict_module_closure": true,
+      "seconds": 46.358,
+      "audit_model_calls": 3,
+      "actual_rows": [
+        {
+          "count": 999
+        }
+      ],
+      "narrative": "品牌为“O&J”的报名记录中，计划出席【主题大会】或【音乐节】至少一场活动的去重报名人数为 999。注意：1表示计划出席，不代表实际签到。",
+      "outcome_status": "ready",
+      "outcome_reason": "ready",
+      "query_status": "ok",
+      "trace_id": "ad771bd340b04d6989d1e58373b46158"
+    },
+    {
+      "id": "N02",
+      "question": "O&J中，报名参加主题大会、但没有音乐节参加标记1的有多少条报名记录？空白也算没有标记1。",
+      "answerable": true,
+      "answer_behavior_pass": true,
+      "canonical_contract_pass": true,
+      "narration_completed": true,
+      "context_saved": true,
+      "sql_replay_equal": true,
+      "audit_complete": true,
+      "strict_module_closure": true,
+      "seconds": 47.693,
+      "audit_model_calls": 3,
+      "actual_rows": [
+        {
+          "count": 81
+        }
+      ],
+      "narrative": "在品牌为“O&J”的报名记录中，报名参加【主题大会】（计划出席标记为1）、但在【音乐节】没有参加标记1（包括0和空白未标记）的共有 81 条报名记录。注意：出席标记1表示计划出席，不代表实际签到；此处按报名记录计数。",
+      "outcome_status": "ready",
+      "outcome_reason": "ready",
+      "query_status": "ok",
+      "trace_id": "c5f4e58f53fe48da96b25ec9f1ba5bbd"
+    },
+    {
+      "id": "N03",
+      "question": "O&J按邀请国家原值统计报名人数，列出人数最多的前5个国家；人数相同按国家原值升序。",
+      "answerable": true,
+      "answer_behavior_pass": true,
+      "canonical_contract_pass": true,
+      "narration_completed": true,
+      "context_saved": true,
+      "sql_replay_equal": true,
+      "audit_complete": true,
+      "strict_module_closure": true,
+      "seconds": 50.111,
+      "audit_model_calls": 3,
+      "actual_rows": [
+        {
+          "country": "意大利",
+          "registration_count": 86
+        },
+        {
+          "country": "UK",
+          "registration_count": 66
+        },
+        {
+          "country": "Vietnam",
+          "registration_count": 66
+        },
+        {
+          "country": "SPAIN",
+          "registration_count": 63
+        },
+        {
+          "country": "巴西",
+          "registration_count": 63
+        }
+      ],
+      "narrative": "品牌“O&J”报名记录按邀请国家原值分组，人数最多的前5个国家为：意大利 86、UK 66、Vietnam 66、SPAIN 63、巴西 63（并列按国家原值升序）。",
+      "outcome_status": "ready",
+      "outcome_reason": "ready",
+      "query_status": "ok",
+      "trace_id": "3cb71981c5e3455cb562d39131697c24"
+    },
+    {
+      "id": "N04",
+      "question": "CHERY签证已完成的报名人数占该品牌全部报名人数的百分之几？未知状态也计入分母，保留两位小数。",
+      "answerable": true,
+      "answer_behavior_pass": true,
+      "canonical_contract_pass": true,
+      "narration_completed": true,
+      "context_saved": true,
+      "sql_replay_equal": true,
+      "audit_complete": true,
+      "strict_module_closure": true,
+      "seconds": 54.374,
+      "audit_model_calls": 3,
+      "actual_rows": [
+        {
+          "percentage": 20.65
+        }
+      ],
+      "narrative": "品牌为CHERY（奇瑞）的全部报名记录中，派生签证状态为已完成（visa_status=completed）的报名记录数占该品牌全部报名记录数的 20.65%（未知状态已计入分母，结果保留两位小数）。",
+      "outcome_status": "ready",
+      "outcome_reason": "ready",
+      "query_status": "ok",
+      "trace_id": "28eec8fc431440219bf03dd963c2e709"
+    },
+    {
+      "id": "N05",
+      "question": "公司名称为空白或未填写的报名记录共有多少条？",
+      "answerable": true,
+      "answer_behavior_pass": true,
+      "canonical_contract_pass": true,
+      "narration_completed": false,
+      "context_saved": true,
+      "sql_replay_equal": true,
+      "audit_complete": true,
+      "strict_module_closure": false,
+      "seconds": 57.68,
+      "audit_model_calls": 3,
+      "actual_rows": [
+        {
+          "count": 441
+        }
+      ],
+      "narrative": null,
+      "outcome_status": "ready",
+      "outcome_reason": "ready",
+      "query_status": "ok",
+      "trace_id": "e44be48ac0cf40359d1d7ad601f9df53"
+    },
+    {
+      "id": "N06",
+      "question": "2026年4月26日的icar品牌伙伴峰会，有多少条报名记录标记为参加？",
+      "answerable": true,
+      "answer_behavior_pass": false,
+      "canonical_contract_pass": false,
+      "narration_completed": true,
+      "context_saved": true,
+      "sql_replay_equal": true,
+      "audit_complete": true,
+      "strict_module_closure": false,
+      "seconds": 39.054,
+      "audit_model_calls": 3,
+      "actual_rows": [
+        {
+          "planned_attendee_count": 159
+        }
+      ],
+      "narrative": "2026年4月26日举办的“icar品牌伙伴峰会”活动中，标记为计划出席（selected=true）的报名记录共有159条。该结果按报名记录计数，不代表实际签到人数。",
+      "outcome_status": "ready",
+      "outcome_reason": "ready",
+      "query_status": "ok",
+      "trace_id": "83f85354c534417b8860a4403e73c456"
+    },
+    {
+      "id": "N07",
+      "question": "列出CHERY报名编号按文本升序的前5条记录，只返回报名编号、姓名、公司名称、职位、抵达航班号。",
+      "answerable": true,
+      "answer_behavior_pass": true,
+      "canonical_contract_pass": true,
+      "narration_completed": false,
+      "context_saved": true,
+      "sql_replay_equal": true,
+      "audit_complete": true,
+      "strict_module_closure": false,
+      "seconds": 63.316,
+      "audit_model_calls": 3,
+      "actual_rows": [
+        {
+          "registration_id": "1000",
+          "full_name": "TAN WEI CHEK",
+          "company_name": "Sam Hin",
+          "job_title": null,
+          "inbound_flight_no": "MU 796"
+        },
+        {
+          "registration_id": "1001",
+          "full_name": "Paul Maric",
+          "company_name": "CarExpert",
+          "job_title": null,
+          "inbound_flight_no": "自行抵达无需接机"
+        },
+        {
+          "registration_id": "1002",
+          "full_name": "Sean Lander",
+          "company_name": "CarExpert",
+          "job_title": null,
+          "inbound_flight_no": "CX312"
+        },
+        {
+          "registration_id": "1031",
+          "full_name": "GARD ANTONY JAMES",
+          "company_name": "Chery Main North",
+          "job_title": null,
+          "inbound_flight_no": "3U6871"
+        },
+        {
+          "registration_id": "1032",
+          "full_name": "HARRISON NICHOLAS KENT",
+          "company_name": "Harrison Motoring Group Pty Ltd",
+          "job_title": null,
+          "inbound_flight_no": "CX344"
+        }
+      ],
+      "narrative": null,
+      "outcome_status": "ready",
+      "outcome_reason": "ready",
+      "query_status": "ok",
+      "trace_id": "5886b31ed1f84b3e9ef47cd48ef0c09f"
+    },
+    {
+      "id": "N08",
+      "question": "列出2026年4月27日完整活动日程及各活动标记为参加的报名人数，零人参加的活动也保留，只返回活动名称和报名人数，按活动名称升序。",
+      "answerable": true,
+      "answer_behavior_pass": false,
+      "canonical_contract_pass": false,
+      "narration_completed": true,
+      "context_saved": true,
+      "sql_replay_equal": null,
+      "audit_complete": true,
+      "strict_module_closure": false,
+      "seconds": 15.219,
+      "audit_model_calls": 1,
+      "actual_rows": null,
+      "narrative": null,
+      "outcome_status": "clarification",
+      "outcome_reason": "ambiguous",
+      "query_status": null,
+      "trace_id": "a470944e03174efe8ccc575f29e2038d"
+    },
+    {
+      "id": "N09",
+      "question": "列出邀请国家原值等于“格陵兰”的报名记录，只返回姓名和公司名称。",
+      "answerable": true,
+      "answer_behavior_pass": true,
+      "canonical_contract_pass": true,
+      "narration_completed": true,
+      "context_saved": true,
+      "sql_replay_equal": true,
+      "audit_complete": true,
+      "strict_module_closure": true,
+      "seconds": 32.459,
+      "audit_model_calls": 2,
+      "actual_rows": [],
+      "narrative": null,
+      "outcome_status": "ready",
+      "outcome_reason": "ready",
+      "query_status": "ok",
+      "trace_id": "435c39c6f2f94d20a1ce4e85a5bca293"
+    },
+    {
+      "id": "N10",
+      "question": "CHERY按签证办理状态分组统计报名人数，未知状态也单独列出。",
+      "answerable": true,
+      "answer_behavior_pass": true,
+      "canonical_contract_pass": true,
+      "narration_completed": true,
+      "context_saved": true,
+      "sql_replay_equal": true,
+      "audit_complete": true,
+      "strict_module_closure": true,
+      "seconds": 72.289,
+      "audit_model_calls": 3,
+      "actual_rows": [
+        {
+          "visa_status": "completed",
+          "registration_count": 160
+        },
+        {
+          "visa_status": "not_required",
+          "registration_count": 73
+        },
+        {
+          "visa_status": "unknown",
+          "registration_count": 542
+        }
+      ],
+      "narrative": "CHERY报名记录按派生签证状态分组统计：completed 160条，not_required 73条，unknown 542条（未知状态单独列出一组）。",
+      "outcome_status": "ready",
+      "outcome_reason": "ready",
+      "query_status": "ok",
+      "trace_id": "fa63c088423c4c199d3b2b59d55a34ec"
+    }
+  ]
+}

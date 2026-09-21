@@ -1,0 +1,64 @@
+{
+  "source_answer_matches_sql_oracle": {
+    "O01": true,
+    "O02": true,
+    "O03": true,
+    "O04": true,
+    "O08": true,
+    "N01": true,
+    "N02": true,
+    "N05": true,
+    "N06": true,
+    "O05": true,
+    "O06": true,
+    "N03": true,
+    "N04": true,
+    "N07": true,
+    "N08": true,
+    "N09": true,
+    "N10": true
+  },
+  "all_17_answerable_references_verified_against_excel": true,
+  "source_name": "2026年国际全球合作伙伴商务峰会 外宾名单.xlsx",
+  "source_sha256": "ab2135186ad4561a322cfefbe5522543b4ff0d4889a81f37889b34660992d073",
+  "record_count": 2340,
+  "source_field_count": 75,
+  "scalar_checks": {
+    "registrations": 2340,
+    "O01": 775,
+    "O02": 656,
+    "O03": 75,
+    "O04": 105,
+    "O08": 1796,
+    "N01": 999,
+    "N02": 81,
+    "N05": 441,
+    "N06": 32
+  },
+  "scalar_matches": {
+    "O01": true,
+    "O02": true,
+    "O03": true,
+    "O04": true,
+    "O08": true,
+    "N01": true,
+    "N02": true,
+    "N05": true,
+    "N06": true
+  },
+  "all_registration_fields_compared": [
+    "registration_id",
+    "full_name",
+    "brand",
+    "country",
+    "company_name",
+    "job_title",
+    "inbound_flight_no"
+  ],
+  "registration_field_mismatches": [],
+  "chery_visa_raw_distribution": {
+    "无需办理": 73,
+    "None": 542,
+    "是": 160
+  }
+}

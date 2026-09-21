@@ -1,0 +1,48 @@
+{
+  "contract_version": "understanding-v2",
+  "turn_id": "replay-1",
+  "status": "ready",
+  "reason": "ready",
+  "message": "问题已明确。",
+  "question": {
+    "contract_version": "understanding-v2",
+    "turn_id": "replay-1",
+    "source_id": "chery-summit-excel-2026",
+    "catalog_version": "chery-excel-2026-v3",
+    "original_question": "英国有多少人？UK也算英国。",
+    "standalone_question": "英国有多少人？UK也算英国。",
+    "entity_mentions": [],
+    "confirmed_entities": [],
+    "assumptions": [],
+    "based_on_turn_ids": []
+  },
+  "next_context": {
+    "contract_version": "understanding-v2",
+    "context_key": "chery-v3-visible-details",
+    "attempts": [
+      {
+        "contract_version": "understanding-v2",
+        "turn_id": "replay-1",
+        "question": "英国有多少人？UK也算英国。",
+        "status": "ready",
+        "reason": "ready"
+      }
+    ],
+    "last_confirmed": {
+      "contract_version": "understanding-v2",
+      "turn_id": "replay-1",
+      "source_id": "chery-summit-excel-2026",
+      "catalog_version": "chery-excel-2026-v3",
+      "original_question": "英国有多少人？UK也算英国。",
+      "standalone_question": "英国有多少人？UK也算英国。",
+      "entity_mentions": [],
+      "confirmed_entities": [],
+      "assumptions": [],
+      "based_on_turn_ids": []
+    },
+    "last_successful_result_ref": null,
+    "pending_choice": null,
+    "unresolved_history_lost": false
+  },
+  "failure": null
+}
